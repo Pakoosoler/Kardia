@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-on-surface":"#ecf1fb","on-surface-variant":"#474556","on-tertiary-container":"#ffddd8","on-secondary":"#ffffff","on-error-container":"#93000a","on-error":"#ffffff","secondary-fixed-dim":"#4fdbcc","tertiary":"#961f18","primary-fixed":"#e4dfff","surface-container":"#e9eef8","on-primary-fixed":"#140067","secondary":"#006a62","surface-container-lowest":"#ffffff","inverse-primary":"#c5c0ff","outline":"#787588","on-secondary-container":"#007168","tertiary-fixed":"#ffdad5","surface-bright":"#f7f9ff","tertiary-container":"#b8382d","surface-container-high":"#e3e8f2","secondary-container":"#70f8e8","primary":"#4223de","outline-variant":"#c8c4d9","background":"#f7f9ff","on-tertiary-fixed":"#410001","error-container":"#ffdad6","surface-container-highest":"#dde3ec","on-primary":"#ffffff","inverse-surface":"#2b3138","surface-tint":"#533cee","surface-container-low":"#eef4fe","primary-container":"#5b46f6","on-tertiary-fixed-variant":"#8c1712","surface-dim":"#d5dae4","tertiary-fixed-dim":"#ffb4aa","on-secondary-fixed":"#00201d","on-primary-container":"#e6e1ff","on-secondary-fixed-variant":"#005049","secondary-fixed":"#70f8e8","primary-fixed-dim":"#c5c0ff","on-primary-fixed-variant":"#3912d8","error":"#ba1a1a","on-background":"#161c23","on-surface":"#161c23","on-tertiary":"#ffffff","surface":"#f7f9ff","surface-variant":"#dde3ec"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","space-xs":"0.25rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","margin":"2rem","space-md":"1rem"},"fontFamily":{"data-tabular-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"data-tabular-lg":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-tabular-md":["Inter"],"label-sm":["Inter"]},"fontSize":{"data-tabular-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-tabular-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"data-tabular-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-lg"><div class="flex flex-col gap-space-md"><div class="px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_4px_12px_rgba(91,70,246,0.25)]"><span class="material-symbols-outlined text-[20px]">school</span></div><div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight block leading-none">KARDIA</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Faculty Workspace</span></div></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">v2.4</span></div><div class="px-space-md"><div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant">Academic Cycle</span><span class="font-data-tabular-sm text-data-tabular-sm text-on-surface font-semibold">Trim 2 · 2024/25</span></div></div><button class="w-6 h-6 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">unfold_more</span></button></div></div><nav class="px-space-md flex flex-col gap-space-xs mt-space-sm" data-active-classes="bg-primary text-on-primary shadow-[0_4px_14px_rgba(91,70,246,0.3)] font-semibold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="teacher-command-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">grid_view</span><span class="font-body-md text-body-md">Command Center</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="interactive-gradebook" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">menu_book</span><span class="font-body-md text-body-md">Gradebook (Notas)</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl transition-all group bg-primary text-on-primary shadow-[0_4px_14px_rgba(91,70,246,0.3)] font-semibold" data-path="attendance-and-behavior" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">fact_check</span><span class="font-body-md text-body-md">Attendance &amp; Behavior</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="weekly-timetable-and-planner" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">date_range</span><span class="font-body-md text-body-md">Weekly Planner</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="student-profile-and-analytics" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">monitoring</span><span class="font-body-md text-body-md">Student Analytics</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">Cloud Sync</span><span class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Live</span></div><div class="w-full bg-surface-container-highest rounded-full h-1.5"><div class="bg-secondary h-1.5 rounded-full" style="width: 92%"></div></div><span class="font-body-sm text-body-sm text-on-surface-variant">All rubrics &amp; grades autosaved</span></div><div class="p-space-sm rounded-xl flex items-center justify-between text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface cursor-pointer transition-colors"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">help_outline</span><span class="font-body-md text-body-md">Teacher Support</span></div><span class="material-symbols-outlined text-[16px]">open_in_new</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Kardia EdTech Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBzVDFxq7_l9-DrXv9tgXUDQ8fhm_Mkb0plIrhOTsw_s5T5ob9HeEDF3WAnHCd6BQrG1Hvlj7SCIml9szP59sr-HjrttGN4iXEzoSQc0e0JI4NPSMw8hBG0lAvUENVNBfa1ZpVTIqMzs6lvT4MHb7gHKYv8EUqvjGX1gd0iF1mFdNRUMvJxglMHT0CgFkSbjRpR8J01RNWHH5fYVXu-YKNwJEOO-nMoNBc73k-Kxg"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight hidden sm:inline">KARDIA</span></div><div class="hidden md:flex items-center bg-surface-container-low rounded-xl px-space-md py-1.5 w-72 text-on-surface-variant gap-space-sm"><span class="material-symbols-outlined text-[18px]">search</span><input class="bg-transparent border-0 outline-none w-full font-body-sm text-body-sm placeholder:text-outline text-on-surface" placeholder="Search roster, rubric, code..." type="text"/><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-medium">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center p-1 bg-surface-container-low rounded-full"><button class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-lowest text-on-surface shadow-[0_1px_4px_rgba(0,0,0,0.05)] font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px] text-primary">desktop_windows</span><span>Desktop Grid</span></button><button class="flex items-center gap-space-xs px-space-md py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px]">smartphone</span><span>Mobile UI (412px)</span></button></div><button class="relative w-9 h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-tertiary"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Prof. Elena Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Lead STEM Faculty</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_2px_8px_rgba(91,70,246,0.3)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full p-margin-mobile lg:p-margin gap-space-lg">
+<!-- Breadcrumbs & Dynamic Operational Header -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span class="text-primary font-semibold">Faculty Cockpit</span>
+<span>/</span>
+<span>Period 3 · Room Lab 204</span>
+<span>/</span>
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Live Session
+        </span>
+</div>
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Attendance &amp; Behavior Hub</h1>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">
+          Dual View Matrix
+        </span>
+</div>
+</div>
+<!-- Quick Class Context Selector & Global Actions -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<div class="flex items-center gap-space-sm bg-surface-container-lowest shadow-sm rounded-xl px-space-md py-2 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">event_available</span>
+<span class="font-body-md text-body-md font-semibold">Tue, Oct 24, 2024</span>
+<span class="text-outline-variant font-label-sm text-label-sm">|</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Chem 10A</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md hover:bg-secondary-fixed-dim transition-all shadow-sm" id="markAllPresentBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Mark All Present</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">publish</span>
+<span>Commit to SIS</span>
+</button>
+</div>
+</div>
+<!-- Realtime Metric Ticker Strip -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-space-md">
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Attendance Rate</span>
+<span class="font-headline-md text-headline-md text-on-surface">91.6%</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">pie_chart</span>
+</div>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block">Present (P)</span>
+<span class="font-headline-md text-headline-md text-secondary">21 <span class="font-body-sm text-body-sm text-on-surface-variant">/ 24</span></span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Late (L)</span>
+<span class="font-headline-md text-headline-md text-on-surface">1</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider block">Absent (A)</span>
+<span class="font-headline-md text-headline-md text-tertiary">1</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">person_off</span>
+</div>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block">Behavior Delta</span>
+<span class="font-headline-md text-headline-md text-primary">+18 <span class="font-body-sm text-body-sm text-tertiary">-2</span></span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">award_star</span>
+</div>
+</div>
+</div>
+<!-- DUAL COCKPIT CONTAINER (68% Desktop Workspace + 32% Native Mobile Mockup) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- DESKTOP WORKSPACE (Left 68% -> 8 columns on desktop) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Workspace Bar: Mode Switcher & Stage Direction -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm bg-surface-container-low p-1 rounded-xl">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">space_dashboard</span>
+<span>Classroom Seating Plan</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">table_rows</span>
+<span>Roster Matrix</span>
+</button>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">sensors</span>
+            Syncing Bluetooth Beacon Seat Sensors
+          </span>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded-lg">
+<button class="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-md" type="button">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span>
+</button>
+<span class="font-label-sm text-label-sm text-on-surface-variant">100%</span>
+<button class="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-md" type="button">
+<span class="material-symbols-outlined text-[16px]">zoom_out</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tactile Seating Plan Glass/Bento Canvas -->
+<div class="p-space-lg rounded-3xl bg-surface-container-lowest shadow-md flex flex-col gap-space-lg relative overflow-hidden">
+<!-- Teacher Podium & Whiteboard Anchor -->
+<div class="w-full flex flex-col items-center">
+<div class="w-2/3 h-2 rounded-full bg-surface-container-highest"></div>
+<div class="px-space-lg py-1 mt-1 rounded-b-xl bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 tracking-wider uppercase font-semibold">
+<span class="material-symbols-outlined text-[14px]">podium</span>
+            Teacher SmartBoard &amp; Demonstration Lab Bench
+          </div>
+</div>
+<!-- 4 Rows x 6 Desks Seating Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-space-md pt-space-xs">
+<!-- Desk 01 -->
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">01</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">
+                P
+              </button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm shrink-0" data-alt="Close up portrait photo of high school teenage student Maya Patel with glasses smiling in natural classroom daylight, warm neutral tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArCdBajW1pvWh-s7pcS8ZAU8Lk0jQPMxMYmEcnbLgw6lhde9zdTHRtn_AUrPC2R2iui7mOQgb_xIG1Q0K-VRdu0s895q-sQv0ofIq2M9Qjc_fp3e8VAKasruAvjsk_gg1_1QP01oXZGrSpSloxWpvEVAsdCKFnpI3_PbaZqDo3QxY_BO_85RMwcazHDbm0EJXEuTU3uFQjTug8S_BebHiQI_PVSeCK0BMkFQ4CFw"/>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Maya Patel</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8094</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t-0">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors shadow-xs" title="+1 Participation" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors shadow-xs" title="-1 Warning" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">+2★</span>
+</div>
+</div>
+<!-- Desk 02 -->
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">02</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">
+                P
+              </button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm shrink-0" data-alt="Portrait photo of high school male student Liam Davis wearing green collegiate hoodie smiling warmly indoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAELJbBapQRb0m7qXDLSIHBhTt-J27vj1L2t4rE3eHEr5AjkwYe7VNaBrzeccxJcF8gag4iGPRf2cphaj8GiJiDzVUb_0q3-7krrev4L7mfcUurihsYiFzZjDSQ7dVfArOwYc20G-NmqGxuSUzLaHsREdPeumvTb-u9g4U_Z9j0fo_T6gjK5pIofX8C1lLl1jhqxH2ThZlBGc_UwaCUM-_UAJx7gNtfp7bMAZXd5Q"/>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Liam Davis</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8095</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" title="+1 Participation" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" title="-1 Warning" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-bold">0★</span>
+</div>
+</div>
+<!-- Desk 03 (Late state) -->
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-high shadow-sm transition-all hover:shadow-md min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">03</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="L" type="button">
+                L (08:14)
+              </button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm shrink-0" data-alt="Portrait photo of teenage student Sofia Gomez with pulled back dark curly hair wearing casual gray sweater" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeZOcHayCMF1vjlzl6TCmmfu6qy-vv7jtlslHADzLsmnGvYy0ovvO6YjrqH4kBInFGOfh_PD85E87UUOmreXtx8GIDikncVwsemakb89AMXCxj2L9zZWcPj6yKHKLBZh6kFrGPuOi_Df4grzDC2C6i0FIBtPjRHhBw93kRlAOz_7isTZdDadW5MLBEx27XwNgJYGs4Bf2Crp8mHHwuV6pgYqm3KAFhFQa5_H9rLQ"/>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Sofia Gomez</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8096</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" title="+1 Participation" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" title="-1 Warning" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">+1★</span>
+</div>
+</div>
+<!-- Desk 04 (Absent state) -->
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-tertiary-fixed/30 shadow-sm transition-all hover:shadow-md min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-tertiary/80 font-mono">04</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="A" type="button">
+                Absent
+              </button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs opacity-75">
+<div class="w-8 h-8 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-label-md shrink-0">
+                JK
+              </div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Jaden Kim</span>
+<span class="font-label-sm text-label-sm text-tertiary truncate">Unexcused</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Auto-SMS sent</span>
+<button class="text-tertiary hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">forward_to_inbox</span>
+</button>
+</div>
+</div>
+<!-- Desk 05 -->
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">05</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">
+                P
+              </button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm shrink-0" data-alt="Portrait photo of smiling young high school girl Emma Watson in modern classroom holding notebook" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyDcgK7RvydKkBWKj5qgfP2vq0BLan8p1rDfWb6I4Gm-TJ1iZFnQ30INjzmnaO2fUB8i_PVTNED2_D5aFlLXHtbpiAY934sIgmf7PZuLbJLn_RJjqQ1KGKHifzSp6CavOGCwr9vFtC0ICwd_6hxBTXdL6SyMF5ea2GbfygPRNn3v8Xcdz0Fq_NLpF8pBTHj7zYD0t8XqgzxlzJzF2-m5_h5ZtrXBY2NVDXIaWtQA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Emma Zhang</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8098</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">+3★</span>
+</div>
+</div>
+<!-- Desk 06 (Excused state) -->
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container shadow-sm transition-all hover:shadow-md min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">06</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="E" type="button">
+                Excused
+              </button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm shrink-0" data-alt="Portrait photo of high school male student Ethan Walker with brown hair in navy blue cardigan smiling calmly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl8z4YSc8YlqJgPXM9LtSsH4YvqAOx3vvybH_kqLcl7Og4zSvZMlnDE8vyn0we8MFl1nYy-bTE_rcqGrR9WbzY5Y9WCg41mtsDu3_k47oH6PK3p592JF2s_rTQOXUVUVUBRCRfgPf-TWeY453limgCDHFeoj2-jhtlHCrpzg8qI9viHKiVf2F5i2U3VKVl9C0zsDtCWQGuh-iYEXNbkD2TAIsBk5j9LGjLIQat0w"/>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Ethan Walker</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Robotics Tourn.</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dean cleared</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">verified</span>
+</div>
+</div>
+<!-- Desks 07 to 12 (Row 2 Sample) -->
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">07</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">P</button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md shrink-0">AR</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Aiden Rossi</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8100</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">+1★</span>
+</div>
+</div>
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">08</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">P</button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm shrink-0" data-alt="Portrait photo of female teenage student Chloe Bennett with bright smile wearing stylish denim shirt in library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApZGspk7o6i71RzkTUAbF1QQ_t2ET0KneJRQ8gcMBSKaO9yncflchMX0Ci35HgPeJsDB86GTR3yqYKguliUA2-LT780yFRM7KYr3iTj9-MDb73qVSj0dW-5-vB-uU6IG6p_mEd4KhaABjnbEohbCkamW0nHIMmWupYu5-PEnpP0epfjKQQWCl4FwuzWObp4s45xXMN6b00bdg-rSwRVDsGKI101NwyFlsze0CORA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Chloe Bennett</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8101</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">+4★</span>
+</div>
+</div>
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">09</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">P</button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-label-md shrink-0">LS</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Lucas Silva</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8102</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-bold">0★</span>
+</div>
+</div>
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">10</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">P</button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-label-md shrink-0">NO</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Nora O'Connor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8103</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">+2★</span>
+</div>
+</div>
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">11</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">P</button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-label-md shrink-0">DT</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Devon Taylor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8104</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold">-1!</span>
+</div>
+</div>
+<div class="desk-card flex flex-col justify-between p-space-sm rounded-2xl bg-surface-container-low shadow-sm transition-all hover:shadow-md hover:bg-surface-container min-h-[148px]">
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 font-mono">12</span>
+<button class="cycle-status px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-sm text-label-sm font-semibold hover:opacity-90" data-status="P" type="button">P</button>
+</div>
+<div class="flex items-center gap-space-xs my-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-label-md shrink-0">ZL</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-sm text-data-tabular-sm font-semibold text-on-surface truncate">Zoe Lin</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ID: 8105</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+</button>
+<button class="w-6 h-6 rounded-md bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</button>
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">+1★</span>
+</div>
+</div>
+</div>
+<!-- Custom Active Praise / Micro-Intervention Dock -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-wrap items-center justify-between gap-space-md mt-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Quick Badge Launcher:</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-space-sm py-1 rounded-full bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-sm text-label-sm transition-colors shadow-xs" type="button">
+                💡 Critical Thinker
+              </button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-lowest text-secondary hover:bg-secondary hover:text-on-secondary font-label-sm text-label-sm transition-colors shadow-xs" type="button">
+                🤝 Great Teamwork
+              </button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-lowest text-tertiary hover:bg-tertiary hover:text-on-tertiary font-label-sm text-label-sm transition-colors shadow-xs" type="button">
+                ⚠️ Off-Task Warning
+              </button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors shadow-xs" type="button">
+                📝 Lab Kit Ready
+              </button>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tap badge, then tap student desk</span>
+</div>
+</div>
+<!-- Real-time Behavioral Stream & Parent Contact Feed -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Live Period Behavior Ledger -->
+<div class="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Period Points Ledger</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+18 Net Positives</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-label-sm">+1</span>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Chloe Bennett</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Explained redox reaction to group</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">08:24</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-bold text-label-sm">-1</span>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Devon Taylor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Unapproved phone usage during lab safety run</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">08:18</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-label-sm">+2</span>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block leading-tight">Maya Patel</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Outstanding titration setup demonstration</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">08:11</span>
+</div>
+</div>
+</div>
+<!-- Guardian Live Dispatch & Notification Center -->
+<div class="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">notifications_active</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Guardian Telemetry</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/30 text-on-secondary font-label-sm text-label-sm font-semibold">Active Dispatch</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Instant SMS &amp; Portal alerts routed when unexcused absences exceed institutional threshold (15 mins past bell).
+            </p>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Immediate Parent Escalation</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+              Targeted to: <span class="font-semibold text-on-surface">Jaden Kim's Guardian (Mrs. S. Kim)</span>
+</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="w-full py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors text-center" type="button">
+              Review Dispatch Queue (1)
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- NATIVE ANDROID MOBILE ATTENDANCE (Right 32% -> 4 columns on desktop) -->
+<div class="xl:col-span-4 flex flex-col items-center">
+<!-- Label Header for Side-by-Side Presentation -->
+<div class="w-full max-w-[412px] flex items-center justify-between pb-space-sm px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">smartphone</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Android Companion UI</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pixel 8 · 412x915 dp</span>
+</div>
+<!-- Android Phone Enclosure Frame -->
+<div class="w-full max-w-[412px] h-[860px] bg-inverse-surface rounded-[42px] p-3 shadow-2xl flex flex-col relative overflow-hidden">
+<!-- Inner Screen Area (Android System) -->
+<div class="w-full h-full bg-surface rounded-[32px] flex flex-col justify-between overflow-hidden relative">
+<!-- Android Status Bar -->
+<div class="w-full px-6 pt-3 pb-1 flex items-center justify-between text-on-surface font-label-sm text-label-sm select-none">
+<span class="font-semibold">08:26</span>
+<!-- Camera Hole Punch cutout -->
+<div class="w-3.5 h-3.5 rounded-full bg-inverse-surface"></div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- Android App Bar (Material 3 Compact) -->
+<div class="px-space-md py-space-sm flex flex-col gap-space-xs border-b-0 bg-surface-container-lowest shadow-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface leading-tight">Fast-Tap Roll Call</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chem 10A · 24 Enrolled</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-low text-primary flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+<!-- Gesture Coach Pill -->
+<div class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">swipe</span>
+                Right: +Star
+              </span>
+<span>·</span>
+<span class="flex items-center gap-1">
+                Left: Note
+                <span class="material-symbols-outlined text-[14px] text-tertiary">edit_note</span>
+</span>
+</div>
+</div>
+<!-- Vertical Fast-Scroll Student Card Stack (One-Handed Thumb Reach) -->
+<div class="flex-1 overflow-y-auto px-space-md py-space-sm flex flex-col gap-space-sm">
+<!-- Student 1 -->
+<div class="p-space-sm rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait photo avatar of female teenager Maya Patel in school setting smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpHTq40AhOjJ6lb7mfQTyeNX5Qh1tZP4m1Tblz-MfWj_3byr9SwrLPk4hP74oOZo5sUtMcAKHRqpFv_QgXepX2QLsFpPPgfaHAVeSBIOukcozbH0_tkoso80HggArn-O6-Y40K7CUijCTWNAvcS22tb4CcVcPOgFjAPEgNbNcSHT6v4FDt-n4RzidWNvK_2x8E1cVhXFgNfD7fnDPvrvEEZ_oLVmPUG_SNgKNW8Q"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-high font-mono text-[9px] font-bold text-on-surface flex items-center justify-center">
+                    01
+                  </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-md text-data-tabular-md font-semibold text-on-surface truncate">Maya Patel</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Present · +2 Stars</span>
+</div>
+</div>
+<!-- Thumb Segmented Chip [P|L|A|E] -->
+<div class="flex items-center bg-surface-container-low rounded-xl p-0.5 shrink-0">
+<button class="px-2 py-1 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold" type="button">P</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">L</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">A</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">E</button>
+</div>
+</div>
+<!-- Student 2 -->
+<div class="p-space-sm rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait photo of high school student Liam Davis smiling outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc1NSeZT30Qhn7uBUzw2XRwn8qDeVBDF8elrvZ4lUUzXzcxDumwjtNB6mquRJnMenyMVvxejy70kwVxDqtFfRDAg-C7azJvsPx9fpF73wLnDphtRHMOncUpHgQ9r_x9kiiNqpuWNU61JnrvNvs_MNFhTezVbDXB4aD9cCWmUJG0MSBcrsogHaEuFQCZFlsxHxni6-a3Cwd9bFhtyMOqVwT1dru4B8cmNHTsVnjxw"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-high font-mono text-[9px] font-bold text-on-surface flex items-center justify-center">
+                    02
+                  </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-md text-data-tabular-md font-semibold text-on-surface truncate">Liam Davis</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Present · No Badges</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-xl p-0.5 shrink-0">
+<button class="px-2 py-1 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold" type="button">P</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">L</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">A</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">E</button>
+</div>
+</div>
+<!-- Student 3 (Late) -->
+<div class="p-space-sm rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait photo of Sofia Gomez high school girl with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBksc4Ma8o3dRcrNxwCWq0oR4NJ5fKR_2c3VftDxK0OGTfTRvXzS35tlj-bY8YRyY9-bL76k_zyySjiu-SJp9pIN-ZCKZ7PEPn-z330ns2RO-2bwl2AXNli-YY5D9W1DpSBdb_b5j9eV7u7OJgp59TDIRsokHAXr_AD3H4GiSTNI7LFafdJ0shjEKimf7dEFwDbbnfnxpuPeF3EdK8hFxeWmbh9w_XUCsTGt8-mRg"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-high font-mono text-[9px] font-bold text-on-surface flex items-center justify-center">
+                    03
+                  </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-md text-data-tabular-md font-semibold text-on-surface truncate">Sofia Gomez</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Late · 08:14</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-xl p-0.5 shrink-0">
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">P</button>
+<button class="px-2 py-1 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold" type="button">L</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">A</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">E</button>
+</div>
+</div>
+<!-- Student 4 (Absent - Alert state) -->
+<div class="p-space-sm rounded-2xl bg-tertiary-fixed/20 shadow-sm flex items-center justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-bold text-label-md">
+                    JK
+                  </div>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-tertiary-container font-mono text-[9px] font-bold text-on-tertiary-container flex items-center justify-center">
+                    04
+                  </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-md text-data-tabular-md font-semibold text-on-surface truncate">Jaden Kim</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Absent · Unexcused</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-xl p-0.5 shrink-0">
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">P</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">L</button>
+<button class="px-2 py-1 rounded-lg bg-tertiary text-on-tertiary font-label-sm text-label-sm font-bold" type="button">A</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">E</button>
+</div>
+</div>
+<!-- Student 5 -->
+<div class="p-space-sm rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait photo of Emma Zhang student smiling at camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIbFH6dJzzQFTVqguXvipt3xrmRK5TGcOa1PhycUkomZ-JketRICbMRsGTMZKK-OjFGJRCWkm6BxiMnxJXq79X09SfQOva_Nx0_UxugoCvlrM8v3E8NCUsmhnZccJ3ngOg0ktPraVOn2HG2C6lA84UemtSSihxozEJKFwl1m_oF4KzQZ3oO4JNFbFwUe5iHj5lbRdUMm_IIfwiict39lpWY4b3SwaduUy0B2YtoQ"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-high font-mono text-[9px] font-bold text-on-surface flex items-center justify-center">
+                    05
+                  </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-md text-data-tabular-md font-semibold text-on-surface truncate">Emma Zhang</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Present · +3 Stars</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-xl p-0.5 shrink-0">
+<button class="px-2 py-1 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold" type="button">P</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">L</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">A</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">E</button>
+</div>
+</div>
+<!-- Student 6 (Excused) -->
+<div class="p-space-sm rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait photo of Ethan Walker high school student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9OknECvHupowhAbMdch2DXD3Z8PHmSCbkQNOkma5yNG-LpU7d7Ohq_jl0nQBlU-zfn4VQ-4pyDkMImS4-xB0eN5B86KDkMfe1C6pkn403gMFdamRTvPJKWnQtM8EsEWUqwAnbe-GnKyII-sDY_JmmT5gvhWIa8TkV-BQJAosKRXwMSl-ieuovctqRlmk006OJ_KjGRJsGYcpO9xUnRMmiA_T_Io6eD-GrYWyQWw"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-high font-mono text-[9px] font-bold text-on-surface flex items-center justify-center">
+                    06
+                  </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-tabular-md text-data-tabular-md font-semibold text-on-surface truncate">Ethan Walker</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Excused · Robotics Tourn.</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-xl p-0.5 shrink-0">
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">P</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">L</button>
+<button class="px-2 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm" type="button">A</button>
+<button class="px-2 py-1 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold" type="button">E</button>
+</div>
+</div>
+</div>
+<!-- Floating Finish Action Bar (Thumb Comfort Zone) -->
+<div class="p-space-md bg-surface-container-lowest shadow-md flex items-center justify-between gap-space-sm border-t-0">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">23 / 24 Logged</span>
+<span class="font-data-tabular-sm text-data-tabular-sm font-bold text-secondary">91.6% Present</span>
+</div>
+<button class="px-space-md py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-md flex items-center gap-space-xs hover:bg-primary-container" type="button">
+<span>Finish Roll Call</span>
+<span class="material-symbols-outlined text-[18px]">check</span>
+</button>
+</div>
+<!-- Material 3 Bottom Navigation Bar -->
+<div class="w-full bg-surface-container-low px-space-lg py-2 flex items-center justify-around select-none">
+<div class="flex flex-col items-center text-primary">
+<div class="w-12 h-7 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold mt-0.5">Roll Call</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant hover:text-on-surface">
+<div class="w-12 h-7 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+</div>
+<span class="font-label-sm text-label-sm mt-0.5">Badges</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant hover:text-on-surface">
+<div class="w-12 h-7 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+</div>
+<span class="font-label-sm text-label-sm mt-0.5">Stats</span>
+</div>
+</div>
+<!-- Android Bottom Gesture Pill Indicator -->
+<div class="w-full py-1.5 flex justify-center bg-surface-container-low">
+<div class="w-32 h-1 rounded-full bg-on-surface/40"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Interaction Behavior for Attendance Cycling -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Cycle attendance pill state on desk click
+    const states = [
+      { code: 'P', label: 'P', bg: 'bg-secondary-fixed/40', text: 'text-on-secondary-container' },
+      { code: 'L', label: 'Late', bg: 'bg-surface-container-highest', text: 'text-on-surface' },
+      { code: 'A', label: 'Absent', bg: 'bg-tertiary-container', text: 'text-on-tertiary-container' },
+      { code: 'E', label: 'Excused', bg: 'bg-primary-fixed', text: 'text-on-primary-fixed-variant' }
+    ];
+
+    const cycleBtns = document.querySelectorAll('.cycle-status');
+    cycleBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const currentCode = btn.getAttribute('data-status') || 'P';
+        let currentIndex = states.findIndex(s => s.code === currentCode);
+        let nextIndex = (currentIndex + 1) % states.length;
+        let nextState = states[nextIndex];
+
+        // Clear existing style classes
+        states.forEach(s => {
+          btn.classList.remove(...s.bg.split(' '), ...s.text.split(' '));
+        });
+
+        // Apply new style classes
+        btn.classList.add(...nextState.bg.split(' '), ...nextState.text.split(' '));
+        btn.setAttribute('data-status', nextState.code);
+        btn.textContent = nextState.label;
+      });
+    });
+
+    // Mark all present quick action
+    const markAllBtn = document.getElementById('markAllPresentBtn');
+    if (markAllBtn) {
+      markAllBtn.addEventListener('click', () => {
+        cycleBtns.forEach(btn => {
+          states.forEach(s => {
+            btn.classList.remove(...s.bg.split(' '), ...s.text.split(' '));
+          });
+          btn.classList.add('bg-secondary-fixed/40', 'text-on-secondary-container');
+          btn.setAttribute('data-status', 'P');
+          btn.textContent = 'P';
+        });
+      });
+    }
+  });
+</script></main></div></body></html>

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-on-surface":"#ecf1fb","on-surface-variant":"#474556","on-tertiary-container":"#ffddd8","on-secondary":"#ffffff","on-error-container":"#93000a","on-error":"#ffffff","secondary-fixed-dim":"#4fdbcc","tertiary":"#961f18","primary-fixed":"#e4dfff","surface-container":"#e9eef8","on-primary-fixed":"#140067","secondary":"#006a62","surface-container-lowest":"#ffffff","inverse-primary":"#c5c0ff","outline":"#787588","on-secondary-container":"#007168","tertiary-fixed":"#ffdad5","surface-bright":"#f7f9ff","tertiary-container":"#b8382d","surface-container-high":"#e3e8f2","secondary-container":"#70f8e8","primary":"#4223de","outline-variant":"#c8c4d9","background":"#f7f9ff","on-tertiary-fixed":"#410001","error-container":"#ffdad6","surface-container-highest":"#dde3ec","on-primary":"#ffffff","inverse-surface":"#2b3138","surface-tint":"#533cee","surface-container-low":"#eef4fe","primary-container":"#5b46f6","on-tertiary-fixed-variant":"#8c1712","surface-dim":"#d5dae4","tertiary-fixed-dim":"#ffb4aa","on-secondary-fixed":"#00201d","on-primary-container":"#e6e1ff","on-secondary-fixed-variant":"#005049","secondary-fixed":"#70f8e8","primary-fixed-dim":"#c5c0ff","on-primary-fixed-variant":"#3912d8","error":"#ba1a1a","on-background":"#161c23","on-surface":"#161c23","on-tertiary":"#ffffff","surface":"#f7f9ff","surface-variant":"#dde3ec"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","space-xs":"0.25rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","margin":"2rem","space-md":"1rem"},"fontFamily":{"data-tabular-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"data-tabular-lg":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-tabular-md":["Inter"],"label-sm":["Inter"]},"fontSize":{"data-tabular-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-tabular-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"data-tabular-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-lg"><div class="flex flex-col gap-space-md"><div class="px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_4px_12px_rgba(91,70,246,0.25)]"><span class="material-symbols-outlined text-[20px]">school</span></div><div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight block leading-none">KARDIA</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Faculty Workspace</span></div></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">v2.4</span></div><div class="px-space-md"><div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant">Academic Cycle</span><span class="font-data-tabular-sm text-data-tabular-sm text-on-surface font-semibold">Trim 2 · 2024/25</span></div></div><button class="w-6 h-6 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">unfold_more</span></button></div></div><nav class="px-space-md flex flex-col gap-space-xs mt-space-sm" data-active-classes="bg-primary text-on-primary shadow-[0_4px_14px_rgba(91,70,246,0.3)] font-semibold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="teacher-command-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">grid_view</span><span class="font-body-md text-body-md">Command Center</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl transition-all group bg-primary text-on-primary shadow-[0_4px_14px_rgba(91,70,246,0.3)] font-semibold" data-path="interactive-gradebook" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">menu_book</span><span class="font-body-md text-body-md">Gradebook (Notas)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="attendance-and-behavior" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">fact_check</span><span class="font-body-md text-body-md">Attendance &amp; Behavior</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="weekly-timetable-and-planner" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">date_range</span><span class="font-body-md text-body-md">Weekly Planner</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="student-profile-and-analytics" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">monitoring</span><span class="font-body-md text-body-md">Student Analytics</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">Cloud Sync</span><span class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Live</span></div><div class="w-full bg-surface-container-highest rounded-full h-1.5"><div class="bg-secondary h-1.5 rounded-full" style="width: 92%"></div></div><span class="font-body-sm text-body-sm text-on-surface-variant">All rubrics &amp; grades autosaved</span></div><div class="p-space-sm rounded-xl flex items-center justify-between text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface cursor-pointer transition-colors"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">help_outline</span><span class="font-body-md text-body-md">Teacher Support</span></div><span class="material-symbols-outlined text-[16px]">open_in_new</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Kardia EdTech Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBzVDFxq7_l9-DrXv9tgXUDQ8fhm_Mkb0plIrhOTsw_s5T5ob9HeEDF3WAnHCd6BQrG1Hvlj7SCIml9szP59sr-HjrttGN4iXEzoSQc0e0JI4NPSMw8hBG0lAvUENVNBfa1ZpVTIqMzs6lvT4MHb7gHKYv8EUqvjGX1gd0iF1mFdNRUMvJxglMHT0CgFkSbjRpR8J01RNWHH5fYVXu-YKNwJEOO-nMoNBc73k-Kxg"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight hidden sm:inline">KARDIA</span></div><div class="hidden md:flex items-center bg-surface-container-low rounded-xl px-space-md py-1.5 w-72 text-on-surface-variant gap-space-sm"><span class="material-symbols-outlined text-[18px]">search</span><input class="bg-transparent border-0 outline-none w-full font-body-sm text-body-sm placeholder:text-outline text-on-surface" placeholder="Search roster, rubric, code..." type="text"/><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-medium">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center p-1 bg-surface-container-low rounded-full"><button class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-lowest text-on-surface shadow-[0_1px_4px_rgba(0,0,0,0.05)] font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px] text-primary">desktop_windows</span><span>Desktop Grid</span></button><button class="flex items-center gap-space-xs px-space-md py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px]">smartphone</span><span>Mobile UI (412px)</span></button></div><button class="relative w-9 h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-tertiary"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Prof. Elena Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Lead STEM Faculty</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_2px_8px_rgba(91,70,246,0.3)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Utility Context Bar -->
+<div class="px-space-xl py-space-sm bg-surface-container-low flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-semibold text-primary">Live Dual Canvas:</span>
+<span class="text-on-surface-variant">Classroom Web Console (68%) &amp; Kardia Android On-the-Go Client (32%)</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+        Sync Speed: 14ms (Encrypted)
+      </span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">cloud_done</span>
+<span>18 Grades autosaved this minute</span>
+</div>
+</div>
+<!-- Dual Viewport Split Grid -->
+<div class="p-space-lg flex flex-col 2xl:flex-row gap-space-lg items-start w-full">
+<!-- LEFT PANE: DESKTOP WORKSPACE (68% on 2xl) -->
+<section class="w-full 2xl:w-[68%] flex flex-col gap-space-md">
+<!-- Filter & Class Selector Bento -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Main Top Selection Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Class Selector Dropdown -->
+<div class="relative inline-flex items-center bg-surface-container-low rounded-xl px-space-md py-space-sm cursor-pointer shadow-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">biotech</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Selected Course</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">AP Biology · Grade 11 (Period 3)</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] ml-4">arrow_drop_down</span>
+</div>
+<!-- Roster Count Pill -->
+<div class="px-space-md py-space-xs rounded-xl bg-surface-container flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">groups</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-on-surface font-semibold">24 Enrolled</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">100% Present Today</span>
+</div>
+</div>
+<!-- Trimester Switcher Tabs -->
+<div class="bg-surface-container-low p-1 rounded-full flex items-center gap-1">
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Term 1</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-lowest text-primary font-semibold shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Term 2 (Active)
+            </button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Term 3</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Final Avg</button>
+</div>
+</div>
+<!-- Assessment Category Pills & Controls -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs" id="categoryPills">
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary font-medium shadow-sm transition-all hover:opacity-95">All Categories (100%)</button>
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-medium transition-all">Exams (40%)</button>
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-medium transition-all">Lab Work (30%)</button>
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-medium transition-all">Daily Quizzes (20%)</button>
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-medium transition-all">Participation (10%)</button>
+</div>
+<!-- Secondary Actions -->
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary">rule</span>
+<span>Apply Rubric</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">tune</span>
+<span>Weight Settings</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" title="Export PDF or Excel">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+</button>
+<button class="flex items-center gap-2 px-space-lg py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold shadow-md hover:brightness-110 transition-all ml-1">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+<span>+ New Assessment Column</span>
+</button>
+</div>
+</div>
+</div>
+<!-- High Density Sticky Gradebook Data Grid -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden flex flex-col">
+<!-- Floating Batch Action Mini-Bar -->
+<div class="px-space-lg py-space-xs bg-surface-container-low flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-md">
+<span class="font-semibold text-on-surface">Cuaderno de Calificaciones · 5 Evaluaciones Activas</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Escala Oficial Kardia 1.0 - 10.0
+            </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-on-surface-variant">Modo de edición rápida: <kbd class="px-1 py-0.5 rounded bg-surface-container-highest text-on-surface font-mono text-[10px]">ENTER ↓</kbd> <kbd class="px-1 py-0.5 rounded bg-surface-container-highest text-on-surface font-mono text-[10px]">TAB →</kbd></span>
+</div>
+</div>
+<!-- Gradebook Scroll Container -->
+<div class="overflow-x-auto max-h-[620px]">
+<table class="w-full border-collapse text-left text-on-surface">
+<!-- Table Header -->
+<thead class="sticky top-0 z-30 bg-surface-container-lowest/95 backdrop-blur-md shadow-sm">
+<tr>
+<!-- Sticky Column 0: Student Profile -->
+<th class="sticky left-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md px-space-lg py-space-sm w-72 shadow-sm" scope="col">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Estudiante / Código</span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-pointer hover:text-on-surface">swap_vert</span>
+</div>
+</th>
+<!-- Col 1: Cellular Respiration Exam -->
+<th class="px-space-md py-space-sm min-w-[150px] bg-surface-container-lowest" scope="col">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-semibold">Exams · 25%</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">/ 10</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate" title="Cellular Respiration Exam">Cellular Respiration</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Rúbrica Teórica
+                    </span>
+</div>
+</th>
+<!-- Col 2: Photosynthesis Lab Report -->
+<th class="px-space-md py-space-sm min-w-[160px] bg-surface-container-lowest" scope="col">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold">Lab Work · 15%</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">/ 10</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate" title="Photosynthesis Lab Report">Photosynthesis Lab</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Rubric Nivel 4 (Exp.)</span>
+</div>
+</th>
+<!-- Col 3: Mendelian Genetics Quiz -->
+<th class="px-space-md py-space-sm min-w-[145px] bg-surface-container-lowest" scope="col">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-semibold">Quizzes · 10%</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">/ 10</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Mendelian Genetics</span>
+<span class="font-label-sm text-label-sm text-outline">Test Numérico</span>
+</div>
+</th>
+<!-- Col 4: Classroom Engagement & Prep -->
+<th class="px-space-md py-space-sm min-w-[155px] bg-surface-container-lowest" scope="col">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-semibold">Partic. · 10%</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">Qual.</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Class Engagement</span>
+<span class="font-label-sm text-label-sm text-outline">Rúbrica Soft-Skills</span>
+</div>
+</th>
+<!-- Col 5: CRISPR Essay Project -->
+<th class="px-space-md py-space-sm min-w-[155px] bg-surface-container-lowest" scope="col">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-semibold">Project · 20%</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">/ 10</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">CRISPR Essay Dev</span>
+<span class="font-label-sm text-label-sm text-outline">Parcial Activo</span>
+</div>
+</th>
+<!-- Sticky Calculated Column: Term Average -->
+<th class="sticky right-0 z-40 px-space-lg py-space-sm min-w-[160px] bg-surface-container-low/95 backdrop-blur-md text-right shadow-sm" scope="col">
+<div class="flex flex-col items-end gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Term Avg</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-primary font-bold">Weighted (tnum)</span>
+</div>
+</th>
+</tr>
+</thead>
+<!-- Table Body -->
+<tbody class="divide-y-0 text-on-surface">
+<!-- Student 1: Marcus Chen -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<!-- Frozen Cell 0 -->
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up realistic portrait photo of an East Asian male high school student with modern neat haircut in soft natural classroom lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdAnVgfglQXRF1jYM0z-LCZwufue-o4co-ky21iL3aMTCFtIWK29U1opCflPprPPelJQ3FH-n15TBgMsKkggOqb8Tx49Po4zOuSzrIXGwaof66JCYdXUVE0WkdPS4pmDo3cQioAXtTKIP5YbNm5wKG55erTUnMWQvnnC3KyXrOYG39cHChlAH-5TUl_ozxCzu4r34Qc5aXjO6PLx37vdGhNf7IoHuc81qZ4CoEg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Marcus Chen</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-089</span>
+</div>
+</div>
+</td>
+<!-- Col 1 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.6
+                  </div>
+</td>
+<!-- Col 2 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.4
+                  </div>
+</td>
+<!-- Col 3 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.0
+                  </div>
+</td>
+<!-- Col 4 (Rubric pill) -->
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">star</span> Exemplary
+                  </span>
+</td>
+<!-- Col 5 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.5
+                  </div>
+</td>
+<!-- Term Average Column -->
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-secondary tabular-nums">9.4</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Outstanding</span>
+</div>
+<!-- SVG Progress Ring -->
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="94, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute material-symbols-outlined text-[14px] text-secondary">check</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 2: Sophia Al-Mansoor -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<!-- Frozen Cell 0 -->
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Realistic daylight portrait of a young Middle Eastern female student wearing modern spectacles and subtle navy hijab, gentle friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC00DPUC_vY7kOvb0VgLuwVqVpVYh5exouz2gZ2zMDI3xflsDldKb5f_1qBZQ7aqRy1CiiOpcduPwR59tcwGmAOWBwbqHLFl-4cp6UGi8QaqQTQsz8DY8Fo01UWR-cUIfYIVBS5cLqTEdrmZrXBn5-mgz4UKmvtka5WxfOWNfm_sqAwp2YeVTn_pDVvONKTavlh_KU8Lz_H-Mfx0g9CEE7U4y7Q7H6Vsbywo_tF2Q"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Sophia Al-Mansoor</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-042</span>
+</div>
+</div>
+</td>
+<!-- Col 1 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">
+                    8.8
+                  </div>
+</td>
+<!-- Col 2 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.1
+                  </div>
+</td>
+<!-- Col 3 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">
+                    8.5
+                  </div>
+</td>
+<!-- Col 4 (Rubric pill) -->
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span> Proficient
+                  </span>
+</td>
+<!-- Col 5 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">
+                    8.9
+                  </div>
+</td>
+<!-- Term Average Column -->
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-primary tabular-nums">8.8</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Proficient</span>
+</div>
+<!-- SVG Progress Ring -->
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="88, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-primary font-bold tabular-nums">8.8</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 3: Mateo Morales (Active Editing Simulation) -->
+<tr class="bg-surface-container-low/40 hover:bg-surface-container-low transition-colors group">
+<!-- Frozen Cell 0 -->
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Contemporary student headshot of a Hispanic young man with curly hair, olive complexion, wearing olive green hoodie, natural studio light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBinnfO_wQUgSGoQjv3_8fI9jk_qNJ0fr6jvFSJr-e0nfnsKc1aYqCo53_Vs8L5HeMaqaCxWG9HfSu9UoUl7A2tJ4NKddmXU4jp8JKmEPe8-56OxUDk-oWQ7QVnzA2_4IdjTDiPfO9MNZthgwAlAsSTgsQuFClgW4SZhKcN_1WYAB11jOWnSYnRk-2Ute2KQFGSZSxWQfPSJ83TvqWhj60PGYF30-8xAfWaCq6MGA"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Mateo Morales</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-114</span>
+</div>
+</div>
+</td>
+<!-- Col 1: Active Editing Focus state -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-lowest ring-2 ring-primary flex items-center justify-center font-bold text-on-surface shadow-md">
+<span>6.4</span>
+<span class="inline-block w-0.5 h-4 bg-primary ml-0.5 animate-pulse"></span>
+</div>
+</td>
+<!-- Col 2 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-on-surface hover:bg-surface-container cursor-pointer transition-colors shadow-sm">
+                    6.0
+                  </div>
+</td>
+<!-- Col 3 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-on-surface hover:bg-surface-container cursor-pointer transition-colors shadow-sm">
+                    5.8
+                  </div>
+</td>
+<!-- Col 4 (Rubric pill - Developing in Soft Amber) -->
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-amber-500/15 text-amber-700 font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">pending</span> Developing
+                  </span>
+</td>
+<!-- Col 5 (Pending review) -->
+<td class="px-space-md py-space-xs">
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold w-fit">
+<span class="material-symbols-outlined text-[14px]">rate_review</span>
+<span>Needs Review</span>
+</div>
+</td>
+<!-- Term Average Column -->
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-amber-700 tabular-nums">6.2</span>
+<span class="font-label-sm text-label-sm text-amber-700 font-medium">Developing</span>
+</div>
+<!-- SVG Progress Ring -->
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-amber-600" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="62, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-amber-700 font-bold tabular-nums">6.2</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 4: Zara Williams -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<!-- Frozen Cell 0 -->
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait photography of an African American female high school senior smiling confidently, braided hairstyle, warm ambient classroom library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoIvNY_wCBnkiHGfsTqyttSNJUzazan2T2jds3lCyC9r8cmdrHwKIX6IVbkdQiVKLkh5aDBcG_fhLBU9RAskmUWTT7BKwVVkix3cyUpusGLHOND0IDgH4ha0LSfFcpr6W-sKpQiPfjpVLsicQ7nEroGDJFOwx6tKAY6OsjAR8hzml6hdY1gIm0jHp8HTeeH2fsgzlKxdo-7K0iwtViMD349aNujGYeBWlllMmm3w"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Zara Williams</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-031</span>
+</div>
+</div>
+</td>
+<!-- Col 1 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.8
+                  </div>
+</td>
+<!-- Col 2 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.7
+                  </div>
+</td>
+<!-- Col 3 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.5
+                  </div>
+</td>
+<!-- Col 4 (Rubric pill) -->
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">star</span> Exemplary
+                  </span>
+</td>
+<!-- Col 5 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">
+                    9.8
+                  </div>
+</td>
+<!-- Term Average Column -->
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-secondary tabular-nums">9.7</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Honor Roll</span>
+</div>
+<!-- SVG Progress Ring -->
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="97, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute material-symbols-outlined text-[14px] text-secondary">verified</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 5: Liam Gallagher -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<!-- Frozen Cell 0 -->
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Authentic student portrait photo of a Caucasian male high school student wearing casual dark crewneck sweater, thoughtful expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlEmJdO-mANPCBg26B71SEvU-5IyuroZZucvmmUTa2XMJQJev5pkfzmEuUdpnoHznkU_D6PpHVEFwB4pN5mH0KJnK1YlWEYlL35mbk3VRDSkoWqS9OpWLR-E-kW-H9_Zv3hivqa7Dcv8dbA-362VuyKA20uCiqmAxRWw1mj9ow6MCLJGONkDHfdhEImsajnqAuaFsrb9_RYtlhXv0eDiD2ieQ92sgp5AaYC117eQ"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Liam Gallagher</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-055</span>
+</div>
+</div>
+</td>
+<!-- Col 1 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">
+                    7.8
+                  </div>
+</td>
+<!-- Col 2 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">
+                    8.0
+                  </div>
+</td>
+<!-- Col 3 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">
+                    7.5
+                  </div>
+</td>
+<!-- Col 4 (Rubric pill) -->
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span> Proficient
+                  </span>
+</td>
+<!-- Col 5 -->
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">
+                    8.2
+                  </div>
+</td>
+<!-- Term Average Column -->
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-primary tabular-nums">7.9</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Proficient</span>
+</div>
+<!-- SVG Progress Ring -->
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="79, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-primary font-bold tabular-nums">7.9</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 6: Elena Rostova -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full bg-primary/15 text-primary flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                    ER
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Elena Rostova</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-067</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">9.2</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">9.0</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.7</div>
+</td>
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">star</span> Exemplary
+                  </span>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">9.3</div>
+</td>
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-secondary tabular-nums">9.1</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Outstanding</span>
+</div>
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="91, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-secondary font-bold tabular-nums">9.1</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 7: Noah Patel -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                    NP
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Noah Patel</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-078</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.4</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.6</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.1</div>
+</td>
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span> Proficient
+                  </span>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.5</div>
+</td>
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-primary tabular-nums">8.4</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Proficient</span>
+</div>
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="84, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-primary font-bold tabular-nums">8.4</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 8: Maya Lin -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full bg-secondary/15 text-secondary flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                    ML
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Maya Lin</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-092</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">9.5</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">9.3</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">9.1</div>
+</td>
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">star</span> Exemplary
+                  </span>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-secondary hover:bg-secondary/15 cursor-pointer transition-colors shadow-sm">9.4</div>
+</td>
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-secondary tabular-nums">9.3</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Outstanding</span>
+</div>
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="93, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-secondary font-bold tabular-nums">9.3</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 9: Lucas Meyer -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                    LM
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Lucas Meyer</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-103</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-tertiary hover:bg-tertiary/10 cursor-pointer transition-colors shadow-sm">4.8</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-amber-700 hover:bg-amber-500/10 cursor-pointer transition-colors shadow-sm">5.5</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-tertiary hover:bg-tertiary/10 cursor-pointer transition-colors shadow-sm">4.5</div>
+</td>
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">warning</span> Needs Review
+                  </span>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-amber-700 hover:bg-amber-500/10 cursor-pointer transition-colors shadow-sm">5.2</div>
+</td>
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-tertiary tabular-nums">5.0</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">At Risk</span>
+</div>
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-tertiary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="50, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-tertiary font-bold tabular-nums">5.0</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Student 10: Chloe Bennett -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 z-20 bg-surface-container-lowest group-hover:bg-surface-container-low transition-colors px-space-lg py-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-8 h-8 rounded-full bg-primary/15 text-primary flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                    CB
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-fixed ring-2 ring-surface-container-lowest" title="Presente"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Chloe Bennett</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">#BIO-2024-119</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.2</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.5</div>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">7.9</div>
+</td>
+<td class="px-space-md py-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span> Proficient
+                  </span>
+</td>
+<td class="px-space-md py-space-xs font-data-tabular-md text-data-tabular-md tabular-nums">
+<div class="w-16 h-8 rounded-lg bg-surface-container-low flex items-center justify-center font-semibold text-primary hover:bg-primary/10 cursor-pointer transition-colors shadow-sm">8.4</div>
+</td>
+<td class="sticky right-0 z-20 px-space-lg py-space-xs bg-surface-container-low/90 group-hover:bg-surface-container-low transition-colors text-right shadow-sm">
+<div class="flex items-center justify-end gap-space-sm">
+<div class="flex flex-col items-end">
+<span class="font-data-tabular-lg text-data-tabular-lg font-bold text-primary tabular-nums">8.3</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Proficient</span>
+</div>
+<div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0">
+<svg class="w-9 h-9 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="83, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-tabular-sm text-[10px] text-primary font-bold tabular-nums">8.3</span>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+<!-- Bottom Summary Statistics Row -->
+<tfoot class="bg-surface-container-low font-data-tabular-sm text-data-tabular-sm text-on-surface">
+<tr>
+<td class="sticky left-0 z-20 bg-surface-container-low px-space-lg py-space-md shadow-sm">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Class Statistical Cohort</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">24 Active Submissions Evaluated</span>
+</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex flex-col">
+<span class="text-outline text-[11px] uppercase">Mean</span>
+<span class="font-semibold text-secondary font-data-tabular-md text-data-tabular-md tabular-nums">8.5</span>
+</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex flex-col">
+<span class="text-outline text-[11px] uppercase">Mean</span>
+<span class="font-semibold text-secondary font-data-tabular-md text-data-tabular-md tabular-nums">8.6</span>
+</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex flex-col">
+<span class="text-outline text-[11px] uppercase">Mean</span>
+<span class="font-semibold text-primary font-data-tabular-md text-data-tabular-md tabular-nums">7.7</span>
+</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex flex-col">
+<span class="text-outline text-[11px] uppercase">Mode</span>
+<span class="font-semibold text-primary">Proficient</span>
+</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex flex-col">
+<span class="text-outline text-[11px] uppercase">Mean</span>
+<span class="font-semibold text-secondary font-data-tabular-md text-data-tabular-md tabular-nums">8.9</span>
+</div>
+</td>
+<td class="sticky right-0 z-20 px-space-lg py-space-md text-right bg-surface-container shadow-sm">
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold tabular-nums">8.4 Class Mean</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">93% Passing Rate · High 9.8</span>
+</div>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- Quick Metrics Bento Grid under Gradebook -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<!-- Metric 1: Class Median -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Class Median</span>
+<span class="font-display-lg text-display-lg font-bold text-on-surface leading-none mt-1">8.6</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium mt-1 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +0.4 vs Trim 1
+            </span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container/50 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">analytics</span>
+</div>
+</div>
+<!-- Metric 2: Passing Mastery -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Passing Mastery</span>
+<span class="font-display-lg text-display-lg font-bold text-secondary leading-none mt-1">93%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">22 of 24 on track</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+</div>
+<!-- Metric 3: Assessment Turn-in -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Grading Speed</span>
+<span class="font-display-lg text-display-lg font-bold text-primary leading-none mt-1">96%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">1 review pending</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+</div>
+</div>
+<!-- Metric 4: Rubric Distribution -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Scale Distribution</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-outline">N=24</span>
+</div>
+<!-- Bar distribution chart -->
+<div class="flex items-end gap-1 h-8 mt-2">
+<div class="w-1/4 bg-secondary rounded-t h-[85%]" title="&gt;= 8.0: 14 students"></div>
+<div class="w-1/4 bg-primary rounded-t h-[60%]" title="7.0 - 7.9: 7 students"></div>
+<div class="w-1/4 bg-surface-container-highest rounded-t h-[25%]" title="5.0 - 6.9: 2 students"></div>
+<div class="w-1/4 bg-tertiary-fixed-dim rounded-t h-[10%]" title="&lt; 5.0: 1 student"></div>
+</div>
+<div class="flex justify-between text-[9px] text-outline mt-1 font-label-sm">
+<span>&gt;8.0</span>
+<span>7.0</span>
+<span>5.0</span>
+<span>&lt;5.0</span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT PANE: NATIVE ANDROID MOBILE GRADEBOOK (32% on 2xl) -->
+<section class="w-full 2xl:w-[32%] flex flex-col items-center">
+<!-- Viewport Device Mockup Frame (Android 412 x 915 Scale) -->
+<div class="w-full max-w-[412px] bg-inverse-surface rounded-[40px] p-3 shadow-2xl relative">
+<!-- Physical Device Bezel Elements -->
+<div class="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-4 bg-inverse-surface rounded-full z-50 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-surface-container-highest/20 mr-4"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest/30"></div>
+</div>
+<!-- Android Screen Canvas (Light Theme) -->
+<div class="w-full bg-surface rounded-[32px] overflow-hidden flex flex-col relative h-[860px]">
+<!-- Android Status Bar -->
+<div class="pt-2 px-6 pb-1 bg-surface-container-lowest flex items-center justify-between font-label-sm text-label-sm text-on-surface select-none">
+<span class="font-semibold">09:41</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<!-- Top Android App Bar -->
+<div class="bg-surface-container-lowest px-4 py-2 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold leading-none">AP Biology P3</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">24 Students · Term 2 Active</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Mobile Horizontally Scrollable Category Chips -->
+<div class="bg-surface-container-low px-4 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap no-scrollbar">
+<span class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-sm">All</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm">Exams (40%)</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm">Labs (30%)</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm">Quizzes</span>
+</div>
+<!-- Split Spreadsheet Area -->
+<div class="flex-1 flex overflow-hidden relative">
+<!-- Left Fixed Student Identifiers -->
+<div class="w-32 bg-surface-container-lowest shadow-sm flex flex-col flex-shrink-0 z-10">
+<div class="h-10 px-3 bg-surface-container-low flex items-center font-label-sm text-label-sm text-on-surface-variant font-bold">
+                Student
+              </div>
+<!-- Student Row 1 -->
+<div class="h-14 px-3 flex items-center gap-2 bg-primary/10">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                  MC
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-bold text-on-surface truncate">M. Chen</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">9.4 Avg</span>
+</div>
+</div>
+<!-- Student Row 2 -->
+<div class="h-14 px-3 flex items-center gap-2 hover:bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                  SA
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">S. Al-Mansoor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">8.8 Avg</span>
+</div>
+</div>
+<!-- Student Row 3 -->
+<div class="h-14 px-3 flex items-center gap-2 hover:bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                  MM
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">M. Morales</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6.2 Avg</span>
+</div>
+</div>
+<!-- Student Row 4 -->
+<div class="h-14 px-3 flex items-center gap-2 hover:bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                  ZW
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Z. Williams</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">9.7 Avg</span>
+</div>
+</div>
+<!-- Student Row 5 -->
+<div class="h-14 px-3 flex items-center gap-2 hover:bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-[11px] flex-shrink-0">
+                  LG
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">L. Gallagher</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">7.9 Avg</span>
+</div>
+</div>
+</div>
+<!-- Horizontally Scrollable Grade Columns -->
+<div class="flex-1 overflow-x-auto flex flex-col bg-surface">
+<!-- Column Headers -->
+<div class="h-10 flex bg-surface-container-low min-w-[280px]">
+<div class="w-24 px-2 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant font-bold border-r-0">
+                  Exam 1 (25%)
+                </div>
+<div class="w-24 px-2 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant font-bold border-r-0">
+                  Lab 1 (15%)
+                </div>
+<div class="w-24 px-2 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant font-bold">
+                  Quiz (10%)
+                </div>
+</div>
+<!-- Row 1: Active Marcus Chen Scores -->
+<div class="h-14 flex items-center min-w-[280px] bg-primary/10">
+<!-- Col 1 Active Card -->
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-primary text-on-primary font-data-tabular-md text-data-tabular-md font-bold flex items-center justify-center shadow-md">
+                    9.6
+                  </div>
+</div>
+<!-- Col 2 -->
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-secondary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    9.4
+                  </div>
+</div>
+<!-- Col 3 -->
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-secondary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    9.0
+                  </div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="h-14 flex items-center min-w-[280px]">
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-primary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    8.8
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-secondary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    9.1
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-primary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    8.5
+                  </div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="h-14 flex items-center min-w-[280px]">
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-on-surface font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    6.4
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-on-surface font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    6.0
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-on-surface font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    5.8
+                  </div>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="h-14 flex items-center min-w-[280px]">
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-secondary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    9.8
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-secondary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    9.7
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-secondary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    9.5
+                  </div>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="h-14 flex items-center min-w-[280px]">
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-primary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    7.8
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-secondary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    8.0
+                  </div>
+</div>
+<div class="w-24 px-2 flex items-center justify-center">
+<div class="w-16 h-9 rounded-xl bg-surface-container-lowest text-primary font-data-tabular-md text-data-tabular-md font-semibold flex items-center justify-center shadow-sm">
+                    7.5
+                  </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Android Action Button (+) for instant column -->
+<div class="absolute right-4 bottom-72 z-30">
+<button class="w-12 h-12 rounded-2xl bg-primary text-on-primary shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform" title="New Evaluation">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</button>
+</div>
+<!-- Material 3 Tap-to-Grade Bottom Sheet Preview -->
+<div class="bg-surface-container-lowest rounded-t-[28px] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] p-4 flex flex-col gap-3 z-20">
+<!-- Drag Handle -->
+<div class="w-8 h-1 rounded-full bg-outline-variant mx-auto"></div>
+<!-- Grade Entry Header -->
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Grade Entry Mode</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Marcus Chen</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cellular Respiration Exam (Max: 10.0)</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold text-secondary">9.6</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Exemplary</span>
+</div>
+</div>
+<!-- Rubric Level Quick Selector Pills (1 to 4) -->
+<div class="flex items-center gap-1.5 justify-between">
+<button class="flex-1 py-1 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">L1 Init</button>
+<button class="flex-1 py-1 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">L2 Dev</button>
+<button class="flex-1 py-1 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">L3 Prof</button>
+<button class="flex-1 py-1 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">L4 Exemp</button>
+</div>
+<!-- Compact Numeric Keypad Grid -->
+<div class="grid grid-cols-4 gap-1.5 pt-1">
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">7</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">8</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">9</button>
+<button class="h-9 rounded-xl bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">backspace</span>
+</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">4</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">5</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">6</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-bold text-on-surface">.</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">1</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">2</button>
+<button class="h-9 rounded-xl bg-surface-container-low font-data-tabular-md text-data-tabular-md font-semibold text-on-surface hover:bg-surface-container">3</button>
+<button class="h-9 rounded-xl bg-primary text-on-primary font-bold text-body-sm flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</button>
+</div>
+</div>
+<!-- Material 3 Mobile Bottom Navigation Bar -->
+<div class="bg-surface-container-lowest border-t-0 px-6 py-2 flex items-center justify-around shadow-sm">
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-primary">
+<div class="px-4 py-0.5 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold">Gradebook</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+<span class="font-label-sm text-label-sm">Attend</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Android Companion Annotation Bento -->
+<div class="w-full max-w-[412px] bg-surface-container-lowest rounded-2xl p-space-md shadow-sm mt-space-md flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">devices</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Live Sync Telemetry</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Grades entered via the Mobile Keypad or Rubric Tap immediately recalculate standard deviations, cohort means, and progress rings on the Web console via Kardia Zero-Lag WebSocket sockets.
+        </p>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Simple Micro-interaction: Category filter toggle styling
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryButtons = document.querySelectorAll('#categoryPills button');
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => {
+          b.className = 'px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-medium transition-all';
+        });
+        btn.className = 'px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary font-medium shadow-sm transition-all hover:opacity-95';
+      });
+    });
+  });
+</script></main></div></body></html>

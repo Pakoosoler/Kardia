@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+web/node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+web/dist/
+web/dist-ssr/
+*.local
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+web/.env
+web/.env.local
+web/.env.*.local
+android/app/google-services.json
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Android build artifacts
+android/.gradle/
+android/build/
+android/app/build/
+android/.idea/
+android/local.properties
+*.iml
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,795 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users/{uid}
+    // Document ID: Firebase Auth UID
+    // Fields:
+    //   - uid: string (required, immutable, == uid)
+    //   - email: string (required, valid email, <= 254 chars)
+    //   - displayName: string (required, 1..100 chars)
+    //   - roleTitle: string (optional, <= 80 chars)
+    //   - department: string (optional, <= 80 chars)
+    //   - photoURL: string | null (optional, valid http(s) URL, <= 500 chars)
+    //   - role: string (optional, 'teacher' on create, immutable on update)
+    //   - schoolIds: list<string> (optional, <= 10 items; empty on create; on update only verified school memberships may be added)
+    //   - activeCycle: string (optional, 1..32 chars)
+    //   - metricsConfig: map | null (optional, <= 20 entries; teacher default metrics configuration)
+    //   - createdAt: timestamp | ISO string (required, immutable)
+    //   - updatedAt: timestamp | ISO string (required)
+    //
+    // Subcollection: users/{uid}/notes/{noteId}
+    // Document ID: noteId
+    // Fields:
+    //   - id: string (optional, immutable, == noteId)
+    //   - text: string (required, 1..2000 chars)
+    //   - done: bool (required)
+    //   - courseId: string | null (optional, <= 128 chars)
+    //   - studentId: string | null (optional, <= 128 chars)
+    //   - createdAt: timestamp | ISO string (required, immutable)
+    //   - updatedAt: timestamp | ISO string (optional)
+    //
+    // Collection: userDirectory/{uid}
+    // Document ID: Firebase Auth UID
+    // Fields:
+    //   - uid: string (required, immutable, == uid)
+    //   - displayName: string (required, 1..100 chars)
+    //   - email: string (required, valid email, <= 254 chars)
+    //   - photoURL: string | null (optional, valid http(s) URL, <= 500 chars)
+    //   - role: string (optional, in ['teacher', 'tutor', 'faculty'])
+    //   - department: string | null (optional, <= 80 chars)
+    //   - updatedAt: timestamp | ISO string (optional)
+    //
+    // Collection: schools/{schoolId}
+    // Document ID: schoolId
+    // Fields:
+    //   - id: string (optional, immutable, == schoolId)
+    //   - name: string (required, 1..150 chars)
+    //   - academicCycles: list<string> (optional, <= 20 items)
+    //   - memberIds: list<string> (required, 1..500 items)
+    //   - roles: map<string, string> (required, 1..500 entries, values in ['admin', 'teacher'], keys subset of memberIds)
+    //   - createdBy: string (optional, immutable, == creator uid)
+    //   - createdAt: timestamp | ISO string (optional, immutable)
+    //   - updatedAt: timestamp | ISO string (optional)
+    //
+    // Collection: students/{studentId}
+    // Document ID: studentId
+    // Fields:
+    //   - id: string (optional, immutable, == studentId)
+    //   - code: string (required, 1..40 chars)
+    //   - firstName: string (required, 1..80 chars)
+    //   - lastName: string (required, 1..80 chars)
+    //   - fullName: string (optional, 1..160 chars)
+    //   - avatarUrl: string | null (optional, valid http(s) URL, <= 500 chars)
+    //   - initials: string (optional, 1..10 chars)
+    //   - gradeLevel: string (optional, <= 60 chars)
+    //   - track: string (optional, <= 80 chars)
+    //   - homeroom: string (optional, <= 60 chars)
+    //   - guardianName: string | null (optional, <= 120 chars)
+    //   - guardianPhone: string | null (optional, <= 40 chars)
+    //   - guardianEmail: string | null (optional, valid email or empty, <= 254 chars)
+    //   - ownerId: string (required, immutable, == creator uid on create)
+    //   - visibility: string (required, in ['private', 'shared'])
+    //   - sharedWith: list<string> (optional, <= 50 items; must be empty when private)
+    //   - schoolId: string | null (optional, <= 128 chars; must be null when private)
+    //   - competencies: map (optional, keys only ['inquiry', 'lab', 'theory', 'rigor'], numeric 0..100)
+    //   - createdAt: timestamp | ISO string (optional, immutable)
+    //   - updatedAt: timestamp | ISO string (optional)
+    //
+    // Collection: studentObservations/{obsId}
+    // Document ID: obsId
+    // Fields:
+    //   - id: string (optional, immutable, == obsId)
+    //   - studentId: string (required, immutable, 1..128 chars)
+    //   - authorId: string (required, immutable, == creator uid on create)
+    //   - authorName: string (optional, 1..100 chars)
+    //   - authorRole: string (optional, <= 80 chars)
+    //   - visibility: string (required, in ['private', 'shared'])
+    //   - sharedWith: list<string> (optional, <= 50 items; must be empty when private)
+    //   - schoolId: string | null (optional, <= 128 chars; must be null when private)
+    //   - text: string (required, 1..5000 chars)
+    //   - tags: list<string> (optional, <= 20 items)
+    //   - createdAt: timestamp | ISO string (required, immutable)
+    //   - updatedAt: timestamp | ISO string (optional)
+    //
+    // Collection: courses/{courseId}
+    // Document ID: courseId
+    // Fields:
+    //   - id: string (optional, immutable, == courseId)
+    //   - title: string (required, 1..150 chars)
+    //   - shortName: string (optional, <= 40 chars)
+    //   - room: string (optional, <= 60 chars)
+    //   - periodLabel: string (optional, <= 60 chars)
+    //   - scheduleSummary: string (optional, <= 150 chars)
+    //   - academicCycle: string (required, 1..32 chars)
+    //   - colorAccent: string (optional, in ['indigo', 'teal', 'amber'])
+    //   - ownerId: string (required, immutable, == creator uid on create)
+    //   - coTeacherIds: list<string> (required, <= 30 items; empty when private)
+    //   - viewerIds: list<string> (required, <= 30 items; empty when private)
+    //   - memberIds: list<string> (required, 1..65 items; union of ownerId + coTeacherIds + viewerIds)
+    //   - visibility: string (required, in ['private', 'shared'])
+    //   - schoolId: string | null (optional, <= 128 chars; null when private)
+    //   - studentIds: list<string> (optional, <= 200 items)
+    //   - seatAssignments: map<string, int> (optional, <= 200 entries)
+    //   - categories: list<map> (required, <= 20 items)
+    //   - metricsConfig: map | null (optional, <= 20 entries; automated & custom metric formulas)
+    //   - createdAt: timestamp | ISO string (required, immutable)
+    //   - updatedAt: timestamp | ISO string (required)
+    //
+    // Subcollection: courses/{courseId}/assessments/{assessmentId}
+    // Fields: id, termId, categoryId, title, subtitle, weight, maxScore, type, dueDate, order, rubricId, createdBy, createdAt, updatedAt
+    //
+    // Subcollection: courses/{courseId}/grades/{studentId}
+    // Fields: studentId (immutable, == studentId), scores (map <= 100 entries), updatedAt
+    //
+    // Subcollection: courses/{courseId}/attendance/{dateKey}
+    // Fields: date (immutable, == dateKey YYYY-MM-DD), records (map <= 200 entries), committedToSis (bool), updatedAt, updatedBy
+    //
+    // Subcollection: courses/{courseId}/behaviorLogs/{logId}
+    // Fields: id, courseId, studentId (immutable), studentName, delta (-10..10), badge, reason, time, createdAt (immutable), authorId (immutable)
+    //
+    // Subcollection: courses/{courseId}/lessonPlans/{planId}
+    // Fields: id, dayIndex (0..6), dateLabel, weekKey, startTime, endTime, periodName, room, title, subtitle, standards, objectives, resources, assignment, createdBy, createdAt, updatedAt
+    //
+    // Collection: rubrics/{rubricId}
+    // Fields: id, title, description, subject, criteria (list 1..30), levels (list <= 10), ownerId (immutable), visibility, sharedWith, schoolId, createdAt, updatedAt
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function uidUnchanged() {
+      return !('uid' in request.resource.data) ||
+             request.resource.data.uid == request.auth.uid;
+    }
+
+    function uidNotModified() {
+      return !('uid' in request.resource.data) ||
+             request.resource.data.uid == resource.data.uid;
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function areImmutableFieldsUnchanged(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(fields);
+    }
+
+    function isValidEmail(email) {
+      return email is string &&
+             email.size() >= 3 &&
+             email.size() <= 254 &&
+             email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function isValidUrl(url) {
+      return url is string &&
+             url.size() <= 500 &&
+             (url.matches("^https://.*") || url.matches("^http://.*"));
+    }
+
+    function isValidTimestampOrIso(val) {
+      return val is timestamp ||
+             (val is string &&
+              val.size() >= 10 &&
+              val.size() <= 40 &&
+              val.matches("^\\d{4}-\\d{2}-\\d{2}.*"));
+    }
+
+    function isValidOptionalId(data, docId) {
+      return !('id' in data) ||
+             (data.id is string && data.id == docId && data.id.size() >= 1 && data.id.size() <= 128);
+    }
+
+    function isSchoolMember(schoolId) {
+      return isAuthenticated() &&
+             schoolId is string &&
+             schoolId.size() >= 1 &&
+             schoolId.size() <= 128 &&
+             exists(/databases/$(database)/documents/schools/$(schoolId)) &&
+             request.auth.uid in get(/databases/$(database)/documents/schools/$(schoolId)).data.memberIds;
+    }
+
+    function isValidSharingFields(data) {
+      return data.visibility in ['private', 'shared'] &&
+             (!('sharedWith' in data) || (data.sharedWith is list && data.sharedWith.size() <= 50)) &&
+             (!('schoolId' in data) || data.schoolId == null ||
+              (data.schoolId is string && data.schoolId.size() >= 1 && data.schoolId.size() <= 128)) &&
+             (data.visibility == 'shared' ||
+              ((!('sharedWith' in data) || data.sharedWith.size() == 0) &&
+               (!('schoolId' in data) || data.schoolId == null)));
+    }
+
+    function isValidMetricsConfig(cfg) {
+      return cfg is map &&
+             cfg.size() <= 20 &&
+             (!('averageMode' in cfg) || cfg.averageMode in ['category_weighted', 'assessment_weighted', 'simple_mean']) &&
+             (!('roundingMode' in cfg) || cfg.roundingMode in ['one_decimal', 'two_decimals', 'integer_nearest']) &&
+             (!('passingThreshold' in cfg) || (cfg.passingThreshold is number && cfg.passingThreshold >= 0 && cfg.passingThreshold <= 100)) &&
+             (!('attendanceAlertPct' in cfg) || (cfg.attendanceAlertPct is number && cfg.attendanceAlertPct >= 0 && cfg.attendanceAlertPct <= 100)) &&
+             (!('behaviorBonusPerPoint' in cfg) || (cfg.behaviorBonusPerPoint is number && cfg.behaviorBonusPerPoint >= 0 && cfg.behaviorBonusPerPoint <= 20)) &&
+             (!('maxBehaviorBonus' in cfg) || (cfg.maxBehaviorBonus is number && cfg.maxBehaviorBonus <= 20 && cfg.maxBehaviorBonus >= 0)) &&
+             (!('unexcusedPenaltyPerAbsence' in cfg) || (cfg.unexcusedPenaltyPerAbsence is number && cfg.unexcusedPenaltyPerAbsence >= 0 && cfg.unexcusedPenaltyPerAbsence <= 20)) &&
+             (!('customMetrics' in cfg) || (cfg.customMetrics is list && cfg.customMetrics.size() <= 20));
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser(data, uid) {
+      return hasOnlyAllowedFields([
+               'uid', 'email', 'displayName', 'roleTitle', 'department',
+               'photoURL', 'role', 'schoolIds', 'activeCycle', 'metricsConfig', 'createdAt', 'updatedAt'
+             ]) &&
+             hasRequiredFields(['uid', 'email', 'displayName', 'createdAt', 'updatedAt']) &&
+             data.uid is string && data.uid == uid &&
+             isValidEmail(data.email) &&
+             data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 100 &&
+             (!('roleTitle' in data) || (data.roleTitle is string && data.roleTitle.size() <= 80)) &&
+             (!('department' in data) || (data.department is string && data.department.size() <= 80)) &&
+             (!('photoURL' in data) || data.photoURL == null || isValidUrl(data.photoURL)) &&
+             (!('role' in data) || data.role in ['teacher', 'admin']) &&
+             (!('schoolIds' in data) || (data.schoolIds is list && data.schoolIds.size() <= 10)) &&
+             (!('activeCycle' in data) || (data.activeCycle is string && data.activeCycle.size() >= 1 && data.activeCycle.size() <= 32)) &&
+             (!('metricsConfig' in data) || data.metricsConfig == null || isValidMetricsConfig(data.metricsConfig)) &&
+             isValidTimestampOrIso(data.createdAt) &&
+             isValidTimestampOrIso(data.updatedAt);
+    }
+
+    function isValidUserSchoolIdsCreate(data) {
+      return !('schoolIds' in data) || data.schoolIds.size() == 0;
+    }
+
+    function isValidUserSchoolIdsUpdate(data) {
+      let oldIds = resource.data.get('schoolIds', []);
+      let newIds = data.get('schoolIds', []);
+      return newIds == oldIds ||
+             oldIds.hasAll(newIds) ||
+             (newIds.size() == oldIds.size() + 1 &&
+              newIds.hasAll(oldIds) &&
+              isSchoolMember(newIds[newIds.size() - 1]));
+    }
+
+    function isValidUserNote(data, noteId) {
+      return hasOnlyAllowedFields(['id', 'text', 'done', 'courseId', 'studentId', 'createdAt', 'updatedAt']) &&
+             hasRequiredFields(['text', 'done', 'createdAt']) &&
+             isValidOptionalId(data, noteId) &&
+             data.text is string && data.text.size() >= 1 && data.text.size() <= 2000 &&
+             data.done is bool &&
+             (!('courseId' in data) || data.courseId == null || (data.courseId is string && data.courseId.size() <= 128)) &&
+             (!('studentId' in data) || data.studentId == null || (data.studentId is string && data.studentId.size() <= 128)) &&
+             isValidTimestampOrIso(data.createdAt) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidUserDirectory(data, uid) {
+      return hasOnlyAllowedFields(['uid', 'displayName', 'email', 'photoURL', 'role', 'department', 'updatedAt']) &&
+             hasRequiredFields(['uid', 'displayName', 'email']) &&
+             data.uid is string && data.uid == uid &&
+             data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 100 &&
+             isValidEmail(data.email) &&
+             (!('photoURL' in data) || data.photoURL == null || isValidUrl(data.photoURL)) &&
+             (!('role' in data) || data.role in ['teacher', 'tutor', 'faculty']) &&
+             (!('department' in data) || data.department == null || (data.department is string && data.department.size() <= 80)) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidSchool(data, schoolId) {
+      return hasOnlyAllowedFields(['id', 'name', 'academicCycles', 'memberIds', 'roles', 'createdBy', 'createdAt', 'updatedAt']) &&
+             hasRequiredFields(['name', 'memberIds', 'roles']) &&
+             isValidOptionalId(data, schoolId) &&
+             data.name is string && data.name.size() >= 1 && data.name.size() <= 150 &&
+             (!('academicCycles' in data) || (data.academicCycles is list && data.academicCycles.size() <= 20)) &&
+             data.memberIds is list && data.memberIds.size() >= 1 && data.memberIds.size() <= 500 &&
+             data.roles is map && data.roles.size() >= 1 && data.roles.size() <= 500 &&
+             data.memberIds.hasAll(data.roles.keys()) &&
+             data.roles.values().hasOnly(['admin', 'teacher']) &&
+             (!('createdBy' in data) || (data.createdBy is string && data.createdBy.size() >= 1 && data.createdBy.size() <= 128)) &&
+             (!('createdAt' in data) || isValidTimestampOrIso(data.createdAt)) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidCompetencies(comp) {
+      return comp is map &&
+             comp.keys().hasOnly(['inquiry', 'lab', 'theory', 'rigor']) &&
+             (!('inquiry' in comp) || (comp.inquiry is number && comp.inquiry >= 0 && comp.inquiry <= 100)) &&
+             (!('lab' in comp) || (comp.lab is number && comp.lab >= 0 && comp.lab <= 100)) &&
+             (!('theory' in comp) || (comp.theory is number && comp.theory >= 0 && comp.theory <= 100)) &&
+             (!('rigor' in comp) || (comp.rigor is number && comp.rigor >= 0 && comp.rigor <= 100));
+    }
+
+    function isValidStudent(data, studentId) {
+      return hasOnlyAllowedFields([
+               'id', 'code', 'firstName', 'lastName', 'fullName', 'avatarUrl', 'initials',
+               'gradeLevel', 'track', 'homeroom', 'guardianName', 'guardianPhone', 'guardianEmail',
+               'ownerId', 'visibility', 'sharedWith', 'schoolId', 'competencies', 'createdAt', 'updatedAt'
+             ]) &&
+             hasRequiredFields(['firstName', 'lastName', 'code', 'visibility', 'ownerId']) &&
+             isValidOptionalId(data, studentId) &&
+             data.code is string && data.code.size() >= 1 && data.code.size() <= 40 &&
+             data.firstName is string && data.firstName.size() >= 1 && data.firstName.size() <= 80 &&
+             data.lastName is string && data.lastName.size() >= 1 && data.lastName.size() <= 80 &&
+             (!('fullName' in data) || (data.fullName is string && data.fullName.size() >= 1 && data.fullName.size() <= 160)) &&
+             (!('avatarUrl' in data) || data.avatarUrl == null || isValidUrl(data.avatarUrl)) &&
+             (!('initials' in data) || (data.initials is string && data.initials.size() >= 1 && data.initials.size() <= 10)) &&
+             (!('gradeLevel' in data) || (data.gradeLevel is string && data.gradeLevel.size() <= 60)) &&
+             (!('track' in data) || (data.track is string && data.track.size() <= 80)) &&
+             (!('homeroom' in data) || (data.homeroom is string && data.homeroom.size() <= 60)) &&
+             (!('guardianName' in data) || data.guardianName == null || (data.guardianName is string && data.guardianName.size() <= 120)) &&
+             (!('guardianPhone' in data) || data.guardianPhone == null || (data.guardianPhone is string && data.guardianPhone.size() <= 40)) &&
+             (!('guardianEmail' in data) || data.guardianEmail == null || data.guardianEmail == '' || isValidEmail(data.guardianEmail)) &&
+             data.ownerId is string && data.ownerId.size() >= 1 && data.ownerId.size() <= 128 &&
+             isValidSharingFields(data) &&
+             (!('competencies' in data) || isValidCompetencies(data.competencies)) &&
+             (!('createdAt' in data) || isValidTimestampOrIso(data.createdAt)) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidObservation(data, obsId) {
+      return hasOnlyAllowedFields([
+               'id', 'studentId', 'authorId', 'authorName', 'authorRole',
+               'visibility', 'sharedWith', 'schoolId', 'text', 'tags', 'createdAt', 'updatedAt'
+             ]) &&
+             hasRequiredFields(['studentId', 'authorId', 'visibility', 'text', 'createdAt']) &&
+             isValidOptionalId(data, obsId) &&
+             data.studentId is string && data.studentId.size() >= 1 && data.studentId.size() <= 128 &&
+             data.authorId is string && data.authorId.size() >= 1 && data.authorId.size() <= 128 &&
+             (!('authorName' in data) || (data.authorName is string && data.authorName.size() >= 1 && data.authorName.size() <= 100)) &&
+             (!('authorRole' in data) || (data.authorRole is string && data.authorRole.size() <= 80)) &&
+             isValidSharingFields(data) &&
+             data.text is string && data.text.size() >= 1 && data.text.size() <= 5000 &&
+             (!('tags' in data) || (data.tags is list && data.tags.size() <= 20)) &&
+             isValidTimestampOrIso(data.createdAt) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidCourse(data, courseId) {
+      return hasOnlyAllowedFields([
+               'id', 'title', 'shortName', 'room', 'periodLabel', 'scheduleSummary',
+               'academicCycle', 'colorAccent', 'ownerId', 'coTeacherIds', 'viewerIds',
+               'memberIds', 'visibility', 'schoolId', 'studentIds', 'seatAssignments',
+               'categories', 'metricsConfig', 'createdAt', 'updatedAt'
+             ]) &&
+             hasRequiredFields([
+               'title', 'academicCycle', 'ownerId', 'coTeacherIds', 'viewerIds',
+               'memberIds', 'visibility', 'categories', 'createdAt', 'updatedAt'
+             ]) &&
+             isValidOptionalId(data, courseId) &&
+             data.title is string && data.title.size() >= 1 && data.title.size() <= 150 &&
+             (!('shortName' in data) || (data.shortName is string && data.shortName.size() <= 40)) &&
+             (!('room' in data) || (data.room is string && data.room.size() <= 60)) &&
+             (!('periodLabel' in data) || (data.periodLabel is string && data.periodLabel.size() <= 60)) &&
+             (!('scheduleSummary' in data) || (data.scheduleSummary is string && data.scheduleSummary.size() <= 150)) &&
+             data.academicCycle is string && data.academicCycle.size() >= 1 && data.academicCycle.size() <= 32 &&
+             (!('colorAccent' in data) || data.colorAccent in ['indigo', 'teal', 'amber']) &&
+             data.ownerId is string && data.ownerId.size() >= 1 && data.ownerId.size() <= 128 &&
+             data.coTeacherIds is list && data.coTeacherIds.size() <= 30 &&
+             data.viewerIds is list && data.viewerIds.size() <= 30 &&
+             data.memberIds is list && data.memberIds.size() >= 1 && data.memberIds.size() <= 65 &&
+             data.ownerId in data.memberIds &&
+             data.memberIds.hasAll(data.coTeacherIds) &&
+             data.memberIds.hasAll(data.viewerIds) &&
+             data.memberIds.size() <= 1 + data.coTeacherIds.size() + data.viewerIds.size() &&
+             data.visibility in ['private', 'shared'] &&
+             (!('schoolId' in data) || data.schoolId == null ||
+              (data.schoolId is string && data.schoolId.size() >= 1 && data.schoolId.size() <= 128)) &&
+             (data.visibility == 'shared' ||
+              (data.memberIds.size() == 1 &&
+               data.coTeacherIds.size() == 0 &&
+               data.viewerIds.size() == 0 &&
+               (!('schoolId' in data) || data.schoolId == null))) &&
+             (!('studentIds' in data) || (data.studentIds is list && data.studentIds.size() <= 200)) &&
+             (!('seatAssignments' in data) || (data.seatAssignments is map && data.seatAssignments.size() <= 200)) &&
+             data.categories is list && data.categories.size() <= 20 &&
+             (!('metricsConfig' in data) || data.metricsConfig == null || isValidMetricsConfig(data.metricsConfig)) &&
+             isValidTimestampOrIso(data.createdAt) &&
+             isValidTimestampOrIso(data.updatedAt);
+    }
+
+    function canReadCourseData(courseData) {
+      return isAuthenticated() && (
+        request.auth.uid == courseData.ownerId ||
+        request.auth.uid in courseData.memberIds ||
+        (courseData.visibility == 'shared' &&
+         courseData.get('schoolId', null) != null &&
+         isSchoolMember(courseData.schoolId))
+      );
+    }
+
+    function canWriteCourseData(courseData) {
+      return isAuthenticated() && (
+        request.auth.uid == courseData.ownerId ||
+        request.auth.uid in courseData.get('coTeacherIds', [])
+      );
+    }
+
+    function canReadCourse(courseId) {
+      return isAuthenticated() &&
+             exists(/databases/$(database)/documents/courses/$(courseId)) &&
+             canReadCourseData(get(/databases/$(database)/documents/courses/$(courseId)).data);
+    }
+
+    function canWriteCourse(courseId) {
+      return isAuthenticated() &&
+             exists(/databases/$(database)/documents/courses/$(courseId)) &&
+             canWriteCourseData(get(/databases/$(database)/documents/courses/$(courseId)).data);
+    }
+
+    function canWriteCourseOnCreate(courseId) {
+      return isAuthenticated() &&
+             existsAfter(/databases/$(database)/documents/courses/$(courseId)) &&
+             canWriteCourseData(getAfter(/databases/$(database)/documents/courses/$(courseId)).data);
+    }
+
+    function isValidAssessment(data, assessmentId) {
+      return hasOnlyAllowedFields([
+               'id', 'termId', 'categoryId', 'title', 'subtitle', 'weight',
+               'maxScore', 'type', 'dueDate', 'order', 'rubricId', 'createdBy', 'createdAt', 'updatedAt'
+             ]) &&
+             hasRequiredFields(['termId', 'categoryId', 'title', 'weight', 'maxScore', 'type']) &&
+             isValidOptionalId(data, assessmentId) &&
+             data.termId in ['term1', 'term2', 'term3'] &&
+             data.categoryId is string && data.categoryId.size() >= 1 && data.categoryId.size() <= 64 &&
+             data.title is string && data.title.size() >= 1 && data.title.size() <= 120 &&
+             (!('subtitle' in data) || (data.subtitle is string && data.subtitle.size() <= 200)) &&
+             data.weight is number && data.weight >= 0 && data.weight <= 100 &&
+             data.maxScore is number && data.maxScore > 0 && data.maxScore <= 1000 &&
+             data.type in ['numeric', 'rubric'] &&
+             (!('dueDate' in data) || data.dueDate == null || isValidTimestampOrIso(data.dueDate)) &&
+             (!('order' in data) || (data.order is number && data.order >= 0 && data.order <= 1000)) &&
+             (!('rubricId' in data) || data.rubricId == null || (data.rubricId is string && data.rubricId.size() <= 128)) &&
+             (!('createdBy' in data) || (data.createdBy is string && data.createdBy.size() <= 128)) &&
+             (!('createdAt' in data) || isValidTimestampOrIso(data.createdAt)) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidGradeDoc(data, studentId) {
+      return hasOnlyAllowedFields(['studentId', 'scores', 'updatedAt']) &&
+             hasRequiredFields(['studentId', 'scores']) &&
+             data.studentId is string && data.studentId == studentId && data.studentId.size() <= 128 &&
+             data.scores is map && data.scores.size() <= 100 &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidAttendanceDoc(data, dateKey) {
+      return hasOnlyAllowedFields(['date', 'records', 'committedToSis', 'updatedAt', 'updatedBy']) &&
+             hasRequiredFields(['date', 'records', 'committedToSis']) &&
+             data.date is string && data.date == dateKey && data.date.matches("^\\d{4}-\\d{2}-\\d{2}$") &&
+             data.records is map && data.records.size() <= 200 &&
+             data.committedToSis is bool &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt)) &&
+             (!('updatedBy' in data) || (data.updatedBy is string && data.updatedBy.size() <= 128));
+    }
+
+    function isValidBehaviorLog(data, logId, courseId) {
+      return hasOnlyAllowedFields([
+               'id', 'courseId', 'studentId', 'studentName', 'delta',
+               'badge', 'reason', 'time', 'createdAt', 'authorId'
+             ]) &&
+             hasRequiredFields(['studentId', 'delta', 'badge', 'reason', 'createdAt', 'authorId']) &&
+             isValidOptionalId(data, logId) &&
+             (!('courseId' in data) || (data.courseId is string && data.courseId == courseId && data.courseId.size() <= 128)) &&
+             data.studentId is string && data.studentId.size() >= 1 && data.studentId.size() <= 128 &&
+             (!('studentName' in data) || (data.studentName is string && data.studentName.size() <= 120)) &&
+             data.delta is int && data.delta >= -10 && data.delta <= 10 &&
+             data.badge is string && data.badge.size() >= 1 && data.badge.size() <= 80 &&
+             data.reason is string && data.reason.size() >= 1 && data.reason.size() <= 500 &&
+             (!('time' in data) || (data.time is string && data.time.size() <= 40)) &&
+             isValidTimestampOrIso(data.createdAt) &&
+             data.authorId is string && data.authorId.size() >= 1 && data.authorId.size() <= 128;
+    }
+
+    function isValidAssignmentMap(assignment) {
+      return assignment is map &&
+             assignment.keys().hasOnly(['title', 'description', 'dueDate', 'completedCount', 'totalCount']) &&
+             (!('title' in assignment) || (assignment.title is string && assignment.title.size() <= 200)) &&
+             (!('description' in assignment) || (assignment.description is string && assignment.description.size() <= 2000)) &&
+             (!('dueDate' in assignment) || assignment.dueDate == null || isValidTimestampOrIso(assignment.dueDate)) &&
+             (!('completedCount' in assignment) || (assignment.completedCount is int && assignment.completedCount >= 0 && assignment.completedCount <= 500)) &&
+             (!('totalCount' in assignment) || (assignment.totalCount is int && assignment.totalCount >= 0 && assignment.totalCount <= 500));
+    }
+
+    function isValidLessonPlan(data, planId) {
+      return hasOnlyAllowedFields([
+               'id', 'dayIndex', 'dateLabel', 'weekKey', 'startTime', 'endTime',
+               'periodName', 'room', 'title', 'subtitle', 'standards', 'objectives',
+               'resources', 'assignment', 'createdBy', 'createdAt', 'updatedAt'
+             ]) &&
+             hasRequiredFields(['dayIndex', 'startTime', 'endTime', 'title']) &&
+             isValidOptionalId(data, planId) &&
+             data.dayIndex is int && data.dayIndex >= 0 && data.dayIndex <= 6 &&
+             (!('dateLabel' in data) || (data.dateLabel is string && data.dateLabel.size() <= 40)) &&
+             (!('weekKey' in data) || (data.weekKey is string && data.weekKey.size() <= 40)) &&
+             data.startTime is string && data.startTime.size() >= 1 && data.startTime.size() <= 20 &&
+             data.endTime is string && data.endTime.size() >= 1 && data.endTime.size() <= 20 &&
+             (!('periodName' in data) || (data.periodName is string && data.periodName.size() <= 80)) &&
+             (!('room' in data) || (data.room is string && data.room.size() <= 60)) &&
+             data.title is string && data.title.size() >= 1 && data.title.size() <= 200 &&
+             (!('subtitle' in data) || (data.subtitle is string && data.subtitle.size() <= 300)) &&
+             (!('standards' in data) || (data.standards is list && data.standards.size() <= 30)) &&
+             (!('objectives' in data) || (data.objectives is list && data.objectives.size() <= 30)) &&
+             (!('resources' in data) || (data.resources is list && data.resources.size() <= 30)) &&
+             (!('assignment' in data) || data.assignment == null || isValidAssignmentMap(data.assignment)) &&
+             (!('createdBy' in data) || (data.createdBy is string && data.createdBy.size() <= 128)) &&
+             (!('createdAt' in data) || isValidTimestampOrIso(data.createdAt)) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    function isValidRubric(data, rubricId) {
+      return hasOnlyAllowedFields([
+               'id', 'title', 'description', 'subject', 'criteria', 'levels',
+               'ownerId', 'visibility', 'sharedWith', 'schoolId', 'createdAt', 'updatedAt'
+             ]) &&
+             hasRequiredFields(['title', 'criteria', 'ownerId', 'visibility']) &&
+             isValidOptionalId(data, rubricId) &&
+             data.title is string && data.title.size() >= 1 && data.title.size() <= 150 &&
+             (!('description' in data) || (data.description is string && data.description.size() <= 1000)) &&
+             (!('subject' in data) || (data.subject is string && data.subject.size() <= 80)) &&
+             data.criteria is list && data.criteria.size() >= 1 && data.criteria.size() <= 30 &&
+             (!('levels' in data) || (data.levels is list && data.levels.size() <= 10)) &&
+             data.ownerId is string && data.ownerId.size() >= 1 && data.ownerId.size() <= 128 &&
+             isValidSharingFields(data) &&
+             (!('createdAt' in data) || isValidTimestampOrIso(data.createdAt)) &&
+             (!('updatedAt' in data) || isValidTimestampOrIso(data.updatedAt));
+    }
+
+    // ===============================================================
+    // Collection Rules
+    // ===============================================================
+
+    // 1. Private user profile and private quick notes
+    match /users/{uid} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid) &&
+                       uidUnchanged() &&
+                       isValidUser(request.resource.data, uid) &&
+                       (!('role' in request.resource.data) || request.resource.data.role == 'teacher') &&
+                       isValidUserSchoolIdsCreate(request.resource.data);
+      allow update: if isOwner(uid) &&
+                       uidNotModified() &&
+                       isValidUser(request.resource.data, uid) &&
+                       areImmutableFieldsUnchanged(['uid', 'createdAt', 'role']) &&
+                       isValidUserSchoolIdsUpdate(request.resource.data);
+      allow delete: if false;
+
+      match /notes/{noteId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid) && isValidUserNote(request.resource.data, noteId);
+        allow update: if isOwner(uid) &&
+                         isValidUserNote(request.resource.data, noteId) &&
+                         areImmutableFieldsUnchanged(['id', 'createdAt']);
+        allow delete: if isOwner(uid);
+      }
+    }
+
+    // 2. Lightweight co-teacher lookup directory (no sensitive private fields)
+    match /userDirectory/{uid} {
+      allow read: if isAuthenticated();
+      allow create: if isOwner(uid) &&
+                       uidUnchanged() &&
+                       isValidUserDirectory(request.resource.data, uid);
+      allow update: if isOwner(uid) &&
+                       uidNotModified() &&
+                       isValidUserDirectory(request.resource.data, uid) &&
+                       areImmutableFieldsUnchanged(['uid']);
+      allow delete: if isOwner(uid);
+    }
+
+    // 3. Schools / Departments
+    match /schools/{schoolId} {
+      allow read: if isAuthenticated() && request.auth.uid in resource.data.memberIds;
+      allow create: if isAuthenticated() &&
+                       isValidSchool(request.resource.data, schoolId) &&
+                       request.auth.uid in request.resource.data.memberIds &&
+                       request.resource.data.roles.get(request.auth.uid, '') == 'admin' &&
+                       (!('createdBy' in request.resource.data) || request.resource.data.createdBy == request.auth.uid);
+      allow update: if isAuthenticated() &&
+                       request.auth.uid in resource.data.memberIds &&
+                       resource.data.roles.get(request.auth.uid, '') == 'admin' &&
+                       isValidSchool(request.resource.data, schoolId) &&
+                       areImmutableFieldsUnchanged(['id', 'createdBy', 'createdAt']);
+      allow delete: if isAuthenticated() &&
+                       request.auth.uid in resource.data.memberIds &&
+                       resource.data.roles.get(request.auth.uid, '') == 'admin';
+    }
+
+    // 4. Students (private or shared with explicit co-teachers or school members)
+    match /students/{studentId} {
+      allow read: if isAuthenticated() && (
+        resource.data.ownerId == request.auth.uid ||
+        ('sharedWith' in resource.data && request.auth.uid in resource.data.sharedWith) ||
+        (resource.data.visibility == 'shared' &&
+         'schoolId' in resource.data &&
+         resource.data.schoolId != null &&
+         isSchoolMember(resource.data.schoolId))
+      );
+      allow create: if isAuthenticated() &&
+                       request.resource.data.ownerId == request.auth.uid &&
+                       isValidStudent(request.resource.data, studentId) &&
+                       (!('schoolId' in request.resource.data) ||
+                        request.resource.data.schoolId == null ||
+                        isSchoolMember(request.resource.data.schoolId));
+      allow update: if isAuthenticated() &&
+                       isValidStudent(request.resource.data, studentId) &&
+                       areImmutableFieldsUnchanged(['id', 'ownerId', 'createdAt']) &&
+                       (
+                         (resource.data.ownerId == request.auth.uid &&
+                          (!('schoolId' in request.resource.data) ||
+                           request.resource.data.schoolId == null ||
+                           request.resource.data.schoolId == resource.data.get('schoolId', null) ||
+                           isSchoolMember(request.resource.data.schoolId))) ||
+                         (resource.data.visibility == 'shared' &&
+                          'sharedWith' in resource.data &&
+                          request.auth.uid in resource.data.sharedWith &&
+                          areImmutableFieldsUnchanged(['ownerId', 'visibility', 'sharedWith', 'schoolId']))
+                       );
+      allow delete: if isAuthenticated() && resource.data.ownerId == request.auth.uid;
+    }
+
+    // 5. Student Observations (private or shared pedagogical notes)
+    match /studentObservations/{obsId} {
+      allow read: if isAuthenticated() && (
+        resource.data.authorId == request.auth.uid ||
+        (resource.data.visibility == 'shared' && (
+          ('sharedWith' in resource.data && request.auth.uid in resource.data.sharedWith) ||
+          ('schoolId' in resource.data &&
+           resource.data.schoolId != null &&
+           isSchoolMember(resource.data.schoolId))
+        ))
+      );
+      allow create: if isAuthenticated() &&
+                       request.resource.data.authorId == request.auth.uid &&
+                       isValidObservation(request.resource.data, obsId) &&
+                       (!('schoolId' in request.resource.data) ||
+                        request.resource.data.schoolId == null ||
+                        isSchoolMember(request.resource.data.schoolId));
+      allow update: if isAuthenticated() &&
+                       resource.data.authorId == request.auth.uid &&
+                       isValidObservation(request.resource.data, obsId) &&
+                       areImmutableFieldsUnchanged(['id', 'authorId', 'studentId', 'createdAt']) &&
+                       (!('schoolId' in request.resource.data) ||
+                        request.resource.data.schoolId == null ||
+                        request.resource.data.schoolId == resource.data.get('schoolId', null) ||
+                        isSchoolMember(request.resource.data.schoolId));
+      allow delete: if isAuthenticated() && resource.data.authorId == request.auth.uid;
+    }
+
+    // 6. Courses and nested classroom subcollections
+    match /courses/{courseId} {
+      allow read: if canReadCourseData(resource.data);
+      allow create: if isAuthenticated() &&
+                       request.resource.data.ownerId == request.auth.uid &&
+                       isValidCourse(request.resource.data, courseId) &&
+                       (!('schoolId' in request.resource.data) ||
+                        request.resource.data.schoolId == null ||
+                        isSchoolMember(request.resource.data.schoolId));
+      allow update: if isAuthenticated() &&
+                       isValidCourse(request.resource.data, courseId) &&
+                       areImmutableFieldsUnchanged(['id', 'ownerId', 'createdAt']) &&
+                       (
+                         (resource.data.ownerId == request.auth.uid &&
+                          (!('schoolId' in request.resource.data) ||
+                           request.resource.data.schoolId == null ||
+                           request.resource.data.schoolId == resource.data.get('schoolId', null) ||
+                           isSchoolMember(request.resource.data.schoolId))) ||
+                         (request.auth.uid in resource.data.coTeacherIds &&
+                          areImmutableFieldsUnchanged([
+                            'ownerId', 'coTeacherIds', 'viewerIds', 'memberIds', 'visibility', 'schoolId'
+                          ]))
+                       );
+      allow delete: if isAuthenticated() && resource.data.ownerId == request.auth.uid;
+
+      match /assessments/{assessmentId} {
+        allow read: if canReadCourse(courseId);
+        allow create: if canWriteCourseOnCreate(courseId) &&
+                         isValidAssessment(request.resource.data, assessmentId) &&
+                         (!('createdBy' in request.resource.data) || request.resource.data.createdBy == request.auth.uid);
+        allow update: if canWriteCourse(courseId) &&
+                         isValidAssessment(request.resource.data, assessmentId) &&
+                         areImmutableFieldsUnchanged(['id', 'createdBy', 'createdAt']);
+        allow delete: if canWriteCourse(courseId);
+      }
+
+      match /grades/{studentId} {
+        allow read: if canReadCourse(courseId);
+        allow create: if canWriteCourseOnCreate(courseId) &&
+                         isValidGradeDoc(request.resource.data, studentId);
+        allow update: if canWriteCourse(courseId) &&
+                         isValidGradeDoc(request.resource.data, studentId) &&
+                         areImmutableFieldsUnchanged(['studentId']);
+        allow delete: if canWriteCourse(courseId);
+      }
+
+      match /attendance/{dateKey} {
+        allow read: if canReadCourse(courseId);
+        allow create: if canWriteCourseOnCreate(courseId) &&
+                         isValidAttendanceDoc(request.resource.data, dateKey);
+        allow update: if canWriteCourse(courseId) &&
+                         isValidAttendanceDoc(request.resource.data, dateKey) &&
+                         areImmutableFieldsUnchanged(['date']);
+        allow delete: if canWriteCourse(courseId);
+      }
+
+      match /behaviorLogs/{logId} {
+        allow read: if canReadCourse(courseId);
+        allow create: if canWriteCourseOnCreate(courseId) &&
+                         isValidBehaviorLog(request.resource.data, logId, courseId) &&
+                         request.resource.data.authorId == request.auth.uid;
+        allow update: if canWriteCourse(courseId) &&
+                         isValidBehaviorLog(request.resource.data, logId, courseId) &&
+                         areImmutableFieldsUnchanged(['id', 'courseId', 'authorId', 'studentId', 'createdAt']);
+        allow delete: if canWriteCourse(courseId);
+      }
+
+      match /lessonPlans/{planId} {
+        allow read: if canReadCourse(courseId);
+        allow create: if canWriteCourseOnCreate(courseId) &&
+                         isValidLessonPlan(request.resource.data, planId) &&
+                         (!('createdBy' in request.resource.data) || request.resource.data.createdBy == request.auth.uid);
+        allow update: if canWriteCourse(courseId) &&
+                         isValidLessonPlan(request.resource.data, planId) &&
+                         areImmutableFieldsUnchanged(['id', 'createdBy', 'createdAt']);
+        allow delete: if canWriteCourse(courseId);
+      }
+    }
+
+    // Collection-group query support for author's own behavior logs across courses
+    match /{path=**}/behaviorLogs/{logId} {
+      allow read: if isAuthenticated() && resource.data.authorId == request.auth.uid;
+    }
+
+    // 7. Rubrics (private or shared templates)
+    match /rubrics/{rubricId} {
+      allow read: if isAuthenticated() && (
+        resource.data.ownerId == request.auth.uid ||
+        (resource.data.visibility == 'shared' && (
+          ('sharedWith' in resource.data && request.auth.uid in resource.data.sharedWith) ||
+          ('schoolId' in resource.data &&
+           resource.data.schoolId != null &&
+           isSchoolMember(resource.data.schoolId))
+        ))
+      );
+      allow create: if isAuthenticated() &&
+                       request.resource.data.ownerId == request.auth.uid &&
+                       isValidRubric(request.resource.data, rubricId) &&
+                       (!('schoolId' in request.resource.data) ||
+                        request.resource.data.schoolId == null ||
+                        isSchoolMember(request.resource.data.schoolId));
+      allow update: if isAuthenticated() &&
+                       resource.data.ownerId == request.auth.uid &&
+                       isValidRubric(request.resource.data, rubricId) &&
+                       areImmutableFieldsUnchanged(['id', 'ownerId', 'createdAt']) &&
+                       (!('schoolId' in request.resource.data) ||
+                        request.resource.data.schoolId == null ||
+                        request.resource.data.schoolId == resource.data.get('schoolId', null) ||
+                        isSchoolMember(request.resource.data.schoolId));
+      allow delete: if isAuthenticated() && resource.data.ownerId == request.auth.uid;
+    }
+
+    // 8. Default Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

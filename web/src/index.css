@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #f7f9ff;
+  --color-surface-dim: #d5dae4;
+  --color-surface-bright: #f7f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef4fe;
+  --color-surface-container: #e9eef8;
+  --color-surface-container-high: #e3e8f2;
+  --color-surface-container-highest: #dde3ec;
+  --color-on-surface: #161c23;
+  --color-on-surface-variant: #474556;
+  --color-outline: #787588;
+  --color-outline-variant: #c8c4d9;
+  --color-border-default: #e2e8f0;
+
+  --color-primary: #4223de;
+  --color-primary-container: #5b46f6;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #e6e1ff;
+  --color-primary-fixed: #e4dfff;
+  --color-on-primary-fixed: #140067;
+
+  --color-secondary: #006a62;
+  --color-secondary-accent: #2ec4b6;
+  --color-secondary-container: #70f8e8;
+  --color-on-secondary-container: #007168;
+
+  --color-tertiary: #961f18;
+  --color-tertiary-accent: #ff6b5b;
+  --color-tertiary-container: #ffdad5;
+
+  --color-warning: #ffbe0b;
+  --color-soft-accent: #eef0fd;
+
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.bento-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 4px 20px -2px rgba(30, 36, 43, 0.04),
+    0 2px 6px -1px rgba(30, 36, 43, 0.02);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.bento-card-interactive:hover {
+  box-shadow:
+    0 12px 32px -4px rgba(91, 70, 246, 0.08),
+    0 4px 12px -2px rgba(30, 36, 43, 0.03);
+}
+
+.glass-bar {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #5b46f6 0%, #4223de 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(91, 70, 246, 0.28);
+}
+
+.btn-primary-gradient:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 6px 18px rgba(91, 70, 246, 0.36);
+}

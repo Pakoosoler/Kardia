@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-on-surface":"#ecf1fb","on-surface-variant":"#474556","on-tertiary-container":"#ffddd8","on-secondary":"#ffffff","on-error-container":"#93000a","on-error":"#ffffff","secondary-fixed-dim":"#4fdbcc","tertiary":"#961f18","primary-fixed":"#e4dfff","surface-container":"#e9eef8","on-primary-fixed":"#140067","secondary":"#006a62","surface-container-lowest":"#ffffff","inverse-primary":"#c5c0ff","outline":"#787588","on-secondary-container":"#007168","tertiary-fixed":"#ffdad5","surface-bright":"#f7f9ff","tertiary-container":"#b8382d","surface-container-high":"#e3e8f2","secondary-container":"#70f8e8","primary":"#4223de","outline-variant":"#c8c4d9","background":"#f7f9ff","on-tertiary-fixed":"#410001","error-container":"#ffdad6","surface-container-highest":"#dde3ec","on-primary":"#ffffff","inverse-surface":"#2b3138","surface-tint":"#533cee","surface-container-low":"#eef4fe","primary-container":"#5b46f6","on-tertiary-fixed-variant":"#8c1712","surface-dim":"#d5dae4","tertiary-fixed-dim":"#ffb4aa","on-secondary-fixed":"#00201d","on-primary-container":"#e6e1ff","on-secondary-fixed-variant":"#005049","secondary-fixed":"#70f8e8","primary-fixed-dim":"#c5c0ff","on-primary-fixed-variant":"#3912d8","error":"#ba1a1a","on-background":"#161c23","on-surface":"#161c23","on-tertiary":"#ffffff","surface":"#f7f9ff","surface-variant":"#dde3ec"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","space-xs":"0.25rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","margin":"2rem","space-md":"1rem"},"fontFamily":{"data-tabular-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"data-tabular-lg":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-tabular-md":["Inter"],"label-sm":["Inter"]},"fontSize":{"data-tabular-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-tabular-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"data-tabular-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-lg"><div class="flex flex-col gap-space-md"><div class="px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_4px_12px_rgba(91,70,246,0.25)]"><span class="material-symbols-outlined text-[20px]">school</span></div><div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight block leading-none">KARDIA</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Faculty Workspace</span></div></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">v2.4</span></div><div class="px-space-md"><div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant">Academic Cycle</span><span class="font-data-tabular-sm text-data-tabular-sm text-on-surface font-semibold">Trim 2 · 2024/25</span></div></div><button class="w-6 h-6 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">unfold_more</span></button></div></div><nav class="px-space-md flex flex-col gap-space-xs mt-space-sm" data-active-classes="bg-primary text-on-primary shadow-[0_4px_14px_rgba(91,70,246,0.3)] font-semibold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="teacher-command-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">grid_view</span><span class="font-body-md text-body-md">Command Center</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="interactive-gradebook" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">menu_book</span><span class="font-body-md text-body-md">Gradebook (Notas)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="attendance-and-behavior" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">fact_check</span><span class="font-body-md text-body-md">Attendance &amp; Behavior</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="weekly-timetable-and-planner" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">date_range</span><span class="font-body-md text-body-md">Weekly Planner</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl transition-all group bg-primary text-on-primary shadow-[0_4px_14px_rgba(91,70,246,0.3)] font-semibold" data-path="student-profile-and-analytics" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-105">monitoring</span><span class="font-body-md text-body-md">Student Analytics</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">Cloud Sync</span><span class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Live</span></div><div class="w-full bg-surface-container-highest rounded-full h-1.5"><div class="bg-secondary h-1.5 rounded-full" style="width: 92%"></div></div><span class="font-body-sm text-body-sm text-on-surface-variant">All rubrics &amp; grades autosaved</span></div><div class="p-space-sm rounded-xl flex items-center justify-between text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface cursor-pointer transition-colors"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">help_outline</span><span class="font-body-md text-body-md">Teacher Support</span></div><span class="material-symbols-outlined text-[16px]">open_in_new</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Kardia EdTech Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBzVDFxq7_l9-DrXv9tgXUDQ8fhm_Mkb0plIrhOTsw_s5T5ob9HeEDF3WAnHCd6BQrG1Hvlj7SCIml9szP59sr-HjrttGN4iXEzoSQc0e0JI4NPSMw8hBG0lAvUENVNBfa1ZpVTIqMzs6lvT4MHb7gHKYv8EUqvjGX1gd0iF1mFdNRUMvJxglMHT0CgFkSbjRpR8J01RNWHH5fYVXu-YKNwJEOO-nMoNBc73k-Kxg"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight hidden sm:inline">KARDIA</span></div><div class="hidden md:flex items-center bg-surface-container-low rounded-xl px-space-md py-1.5 w-72 text-on-surface-variant gap-space-sm"><span class="material-symbols-outlined text-[18px]">search</span><input class="bg-transparent border-0 outline-none w-full font-body-sm text-body-sm placeholder:text-outline text-on-surface" placeholder="Search roster, rubric, code..." type="text"/><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-medium">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center p-1 bg-surface-container-low rounded-full"><button class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-lowest text-on-surface shadow-[0_1px_4px_rgba(0,0,0,0.05)] font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px] text-primary">desktop_windows</span><span>Desktop Grid</span></button><button class="flex items-center gap-space-xs px-space-md py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px]">smartphone</span><span>Mobile UI (412px)</span></button></div><button class="relative w-9 h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-tertiary"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Prof. Elena Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Lead STEM Faculty</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_2px_8px_rgba(91,70,246,0.3)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow -->
+<div class="relative w-full px-space-md lg:px-space-xl py-space-lg flex flex-col gap-space-lg">
+<div class="absolute -top-10 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 right-10 w-80 h-80 bg-secondary/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- View Mode Ribbon & Metadata Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-2xl shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface">Dual-Viewport Dossier</span>
+<span class="px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm">Faculty Synchronized</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Side-by-side verification: Desktop Academic Analytics vs. Kardia Android Companion (412x915px)</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Export Dossier (PDF)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary text-on-primary shadow-sm hover:brightness-105 transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>Add Faculty Log</span>
+</button>
+</div>
+</div>
+<!-- Main Dual Layout: 68% Desktop Bento + 32% Android Phone Shell -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start w-full">
+<!-- ======================================================== -->
+<!-- DESKTOP WORKSPACE (Left 68% -> xl:col-span-8)           -->
+<!-- ======================================================== -->
+<section class="xl:col-span-8 flex flex-col gap-space-lg w-full min-w-0">
+<!-- Deep-Dive Profile Header Card -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg relative overflow-hidden">
+<div class="flex items-center gap-space-lg min-w-0">
+<div class="relative shrink-0">
+<img class="w-24 h-24 rounded-2xl object-cover shadow-md" data-alt="Warm studio portrait of an intelligent Hispanic female high school honors student named Sofia, wearing modern glasses and subtle navy blazer, soft natural library lighting, crisp focus, Kardia edtech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZRyWAfBEmKoi3Wu5-QWHTkemGbwKacNFskNxexQsHlLrdAZjpnnHoaoOU_HYbWlYYN6bQHaWdcCT-P8ghwPeLsrTBoeM9gdARMMGbdUFLgrt3-rkaBmX2ngx0ZBAh06hCkZ1r4eecXPV_krWBochnRhlOWYeYC9uUfkhljfFs472WA6LGyDsKw_bM004Pq5_fAjaXtE7r6RyNPycLdyqoj1XIKm0IzGs9UnmWqg"/>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary w-7 h-7 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Sofia Rodriguez</h1>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-data-tabular-sm text-data-tabular-sm">#STU-2024-884</span>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold">Grade 11 · Honor Roll</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Advanced Placement Biology &amp; Organic Chemistry Track · Homeroom 11-B</p>
+<div class="flex items-center gap-space-md mt-space-sm flex-wrap">
+<div class="flex items-baseline gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cumulative GPA:</span>
+<span class="font-data-tabular-lg text-data-tabular-lg text-primary font-bold">3.88</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">/ 4.0 (Top 4%)</span>
+</div>
+<span class="text-surface-container-highest">·</span>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+<span>Advisor: Dr. Vance</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Parent Contact Actions -->
+<div class="flex flex-row md:flex-col gap-space-xs shrink-0 w-full md:w-auto">
+<button class="flex-1 md:flex-initial flex items-center justify-center gap-space-xs px-space-md py-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">call</span>
+<span>Call Mother</span>
+</button>
+<button class="flex-1 md:flex-initial flex items-center justify-center gap-space-xs px-space-md py-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">mail</span>
+<span>Send Email</span>
+</button>
+<button class="flex-1 md:flex-initial flex items-center justify-center gap-space-xs px-space-md py-2 rounded-xl bg-primary-fixed text-on-primary-fixed-variant hover:bg-primary-fixed/80 font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+<span>Schedule Meet</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid: Analytical Dossier Modules -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg w-full">
+<!-- Bento Card 1: Attendance Health (4 cols) -->
+<div class="md:col-span-5 bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">donut_large</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Attendance Health</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Trim 2</span>
+</div>
+<!-- Gauge and Stats Layout -->
+<div class="flex items-center justify-center py-space-sm relative">
+<svg class="w-36 h-36 -rotate-90" viewbox="0 0 120 120">
+<!-- Track circle -->
+<circle class="text-surface-container-high" cx="60" cy="60" fill="none" r="50" stroke="currentColor" stroke-width="9"></circle>
+<!-- Progress circle: 96.8% of circumference (2 * pi * 50 = 314.15) -> 304 -->
+<circle cx="60" cy="60" fill="none" r="50" stroke="url(#attendanceGradient)" stroke-dasharray="314.15" stroke-dashoffset="10" stroke-linecap="round" stroke-width="9"></circle>
+<defs>
+<lineargradient id="attendanceGradient" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#006A62"></stop>
+<stop offset="100%" stop-color="#70F8E8"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface leading-none">96.8%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase mt-0.5">Optimal</span>
+</div>
+</div>
+<!-- Detailed Attendance Chips -->
+<div class="grid grid-cols-2 gap-space-xs mt-space-sm">
+<div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Present</span>
+<span class="font-data-tabular-md text-data-tabular-md font-bold text-on-surface">42 Days</span>
+</div>
+<div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tardies</span>
+<span class="font-data-tabular-md text-data-tabular-md font-bold text-on-surface">1 Day</span>
+</div>
+<div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Excused</span>
+<span class="font-data-tabular-md text-data-tabular-md font-bold text-on-surface">1 Event</span>
+</div>
+<div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Unexcused</span>
+<span class="font-data-tabular-md text-data-tabular-md font-bold text-secondary font-semibold">0 Clean</span>
+</div>
+</div>
+</div>
+<!-- Bento Card 2: Academic Evolution Sparkline (7 cols) -->
+<div class="md:col-span-7 bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">trending_up</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Academic Evolution</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">AP Biology Score Trend vs Class Mean (Scale 10)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="w-2.5 h-0.5 bg-primary rounded-full"></span> Sofia (9.4)
+                </span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-outline font-normal">
+<span class="w-2.5 h-0.5 bg-outline rounded-full"></span> Class (8.4)
+                </span>
+</div>
+</div>
+<!-- Inline SVG Grade Progression Chart -->
+<div class="w-full h-44 mt-space-sm relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 460 140">
+<defs>
+<lineargradient id="scoreFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4223de" stop-opacity="0.22"></stop>
+<stop offset="100%" stop-color="#4223de" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Reference Grid Lines -->
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="4,4" x1="10" x2="450" y1="30" y2="30"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="4,4" x1="10" x2="450" y1="70" y2="70"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="4,4" x1="10" x2="450" y1="110" y2="110"></line>
+<!-- Benchmark Line (Class Average ~ 8.4 -> y=76) -->
+<line opacity="0.6" stroke="#787588" stroke-dasharray="3,3" stroke-width="2" x1="20" x2="440" y1="76" y2="76"></line>
+<!-- Sofia Area Fill -->
+<!-- Points: Oct(8.2->82), Nov(8.5->72), Dec(9.1->52), Jan(9.4->38) -->
+<path d="M 40,82 Q 150,72 260,52 T 420,38 L 420,130 L 40,130 Z" fill="url(#scoreFill)"></path>
+<!-- Sofia Spline Line -->
+<path d="M 40,82 Q 150,72 260,52 T 420,38" fill="none" stroke="#4223de" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Nodes -->
+<circle class="transition-transform hover:scale-125" cx="40" cy="82" fill="#4223de" r="5"></circle>
+<circle cx="170" cy="72" fill="#4223de" r="5"></circle>
+<circle cx="295" cy="52" fill="#4223de" r="5"></circle>
+<circle cx="420" cy="38" fill="#4223de" r="6" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+<!-- Node Data Labels -->
+<div class="flex justify-between px-space-xs text-on-surface-variant font-label-sm text-label-sm mt-1">
+<div class="flex flex-col items-center">
+<span class="font-data-tabular-sm text-on-surface font-semibold">8.2</span>
+<span>Oct '24</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-data-tabular-sm text-on-surface font-semibold">8.5</span>
+<span>Nov '24</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-data-tabular-sm text-on-surface font-semibold">9.1</span>
+<span>Dec '24</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-data-tabular-sm text-primary font-bold">9.4 ★</span>
+<span class="text-primary font-medium">Jan '25</span>
+</div>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between mt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Momentum Index: <strong class="text-secondary">+1.2 pts</strong> over class baseline</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-semibold">High Trajectory</span>
+</div>
+</div>
+<!-- Bento Card 3: Competencies & Rubric Mastery (6 cols) -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">radar</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Competency Breakdown</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">STEM Rubric 2.4</span>
+</div>
+<!-- Progress Bars Set -->
+<div class="flex flex-col gap-space-sm my-space-xs">
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Scientific Inquiry &amp; Hypothesis</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-primary font-bold">95%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Laboratory Protocol &amp; Precision</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-secondary font-bold">92%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Conceptual &amp; Theoretical Models</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-on-surface font-semibold">88%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Timely Submission &amp; Rigor</span>
+<span class="font-data-tabular-sm text-data-tabular-sm text-secondary font-bold">98%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 98%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span>Exceeds curriculum benchmark across all 4 quadrants.</span>
+</div>
+</div>
+<!-- Bento Card 4: Upcoming Submissions & Exam Schedule (6 cols) -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Upcoming Milestones</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Next 14 Days</span>
+</div>
+<div class="flex flex-col gap-space-xs my-auto">
+<!-- Item 1 -->
+<div class="p-space-sm rounded-2xl bg-surface-container-low flex items-center justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Cellular Respiration Lab Report</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Due Tomorrow · 23:59</span>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm shrink-0">Draft Ready</span>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm rounded-2xl bg-surface-container-low flex items-center justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">quiz</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Mitochondrial Genetics Quiz</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Thursday · 09:30 AM</span>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm shrink-0">Scheduled</span>
+</div>
+<!-- Item 3 -->
+<div class="p-space-sm rounded-2xl bg-surface-container-low flex items-center justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">groups</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">State Science Fair Proposal</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Feb 04 · Capstone</span>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm shrink-0">Reviewing</span>
+</div>
+</div>
+<button class="w-full py-1.5 mt-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" type="button">
+<span>View Full Syllabus Schedule</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+<!-- Bento Card 5: Behavioral Badges & Faculty Timeline (12 cols) -->
+<div class="md:col-span-12 bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">workspace_premium</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Recent Behavioral Endorsements &amp; Faculty Observations</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">stars</span> 14 Merits Active
+                </span>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors" type="button">
+                  + Add Observation
+                </button>
+</div>
+</div>
+<!-- Timeline Entries -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Timeline 1 -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-sm relative">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-[12px] font-bold">
+                      EV
+                    </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Prof. Elena Vance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">AP Biology Instructor</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 days ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">
+                  “Exemplary leadership during Lab 4 (Enzymatic Kinetics). Sofia guided three struggling classmates through calibration errors without disrupting the timeline.”
+                </p>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm">Leadership Badge</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Peer Collaboration</span>
+</div>
+</div>
+<!-- Timeline 2 -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-sm relative">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[12px] font-bold">
+                      MR
+                    </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Markus Reynolds</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">STEM Department Chair</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Jan 18, 2025</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">
+                  “Helped reorganize chemistry prep room inventories voluntarily during study block. Demonstrates exceptional institutional stewardship and safety compliance.”
+                </p>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Stewardship</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Lab Safety Honor</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- NATIVE ANDROID MOBILE MOCKUP (Right 32% -> xl:col-span-4)-->
+<!-- Phone Dimensions: 412px target width, curved chassis     -->
+<!-- ======================================================== -->
+<aside class="xl:col-span-4 flex flex-col items-center w-full">
+<!-- Frame Label -->
+<div class="w-full flex items-center justify-between mb-space-xs px-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">smartphone</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Kardia Mobile App</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Android 14 · Material 3</span>
+</div>
+<!-- Phone Chassis Mockup (412px max desktop width) -->
+<div class="w-full max-w-[412px] bg-inverse-surface p-3 rounded-[44px] shadow-2xl relative">
+<!-- Inner Screen Display (Rounded Screen with Camera Notch) -->
+<div class="w-full bg-surface rounded-[34px] overflow-hidden flex flex-col relative h-[860px]">
+<!-- Android System Status Bar -->
+<div class="h-8 bg-surface-container-lowest px-6 flex items-center justify-between shrink-0 select-none z-30">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">09:41</span>
+<!-- Camera Hole Punch -->
+<div class="w-3.5 h-3.5 rounded-full bg-inverse-surface"></div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- Material 3 Mobile Top App Bar -->
+<div class="bg-surface-container-lowest px-4 py-2 flex items-center justify-between shadow-sm shrink-0 z-20">
+<div class="flex items-center gap-3">
+<button class="w-9 h-9 rounded-full hover:bg-surface-container-high flex items-center justify-center text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[16px] text-on-surface leading-tight">Student Profile</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">AP Biology Roster</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Mobile Content Stack -->
+<div class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 pb-24">
+<!-- Mobile Profile Identity Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col items-center text-center relative">
+<div class="relative mb-2">
+<img class="w-20 h-20 rounded-full object-cover ring-2 ring-primary/20 shadow-md" data-alt="Close up avatar shot of high school student Sofia Rodriguez with warm smile, clean minimalist school portrait, high fidelity, Kardia palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtLKswM1Qtw0xSmwiGpo9Ukn-KFGhmuzFoQCghVYlwK0ve6Iiz4RVSKVhjqNcpg_2MrCMCZr23J_4acXErh76KiJVt-v9GRqp0GCcz9LBMXAt3UjuWWfD_EMIIARgKYVKI-DASAt_IN5NA0toAQozaJ28aDZI1X9h4YvEonQa_n8z9ipKWkVXXuBIhRCXbKn18os2KTrN4O85H9pd-TkK_PrOfY77uaWl3UY5MyA"/>
+<span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[12px] shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Sofia Rodriguez</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Grade 11 · AP Biology &amp; Chemistry</span>
+<span class="mt-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+                  Honor Roll Distinction
+                </span>
+<!-- Quick Action Floating Buttons -->
+<div class="grid grid-cols-3 gap-2 w-full mt-4">
+<button class="py-2 rounded-xl bg-surface-container-low hover:bg-surface-container-high flex flex-col items-center justify-center gap-1 text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">call</span>
+<span class="font-label-sm text-[10px]">Call</span>
+</button>
+<button class="py-2 rounded-xl bg-surface-container-low hover:bg-surface-container-high flex flex-col items-center justify-center gap-1 text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">chat_bubble</span>
+<span class="font-label-sm text-[10px]">Message</span>
+</button>
+<button class="py-2 rounded-xl bg-primary-fixed text-on-primary-fixed-variant hover:bg-primary-fixed/80 flex flex-col items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+<span class="font-label-sm text-[10px]">Meet</span>
+</button>
+</div>
+</div>
+<!-- 2-Column KPI Tiles -->
+<div class="grid grid-cols-2 gap-2.5">
+<div class="bg-surface-container-lowest rounded-2xl p-3 shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant">Cumulative GPA</span>
+<span class="material-symbols-outlined text-[14px] text-primary">grade</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary font-bold">3.88</span>
+<span class="font-label-sm text-[10px] text-secondary font-medium">Top 4% of cohort</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-3 shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant">Attendance</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+</div>
+<span class="font-headline-md text-headline-md text-secondary font-bold">96.8%</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">42 Present · 0 Unexc</span>
+</div>
+</div>
+<!-- Interactive Grade Evolution Sparkline Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-3.5 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">show_chart</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Term Evolution</span>
+</div>
+<span class="font-data-tabular-sm text-primary font-bold">9.4 High</span>
+</div>
+<!-- Compact Mobile SVG Sparkline -->
+<div class="w-full h-20">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 280 70">
+<path d="M 10,50 Q 80,45 160,30 T 270,12 L 270,70 L 10,70 Z" fill="#4223de" fill-opacity="0.12"></path>
+<path d="M 10,50 Q 80,45 160,30 T 270,12" fill="none" stroke="#4223de" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="10" cy="50" fill="#4223de" r="3"></circle>
+<circle cx="95" cy="45" fill="#4223de" r="3"></circle>
+<circle cx="180" cy="30" fill="#4223de" r="3"></circle>
+<circle cx="270" cy="12" fill="#4223de" r="4" stroke="#fff" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="flex justify-between text-[10px] font-label-sm text-on-surface-variant px-1">
+<span>Oct: 8.2</span>
+<span>Nov: 8.5</span>
+<span>Dec: 9.1</span>
+<span class="font-bold text-primary">Jan: 9.4</span>
+</div>
+</div>
+<!-- Expandable Assessment History -->
+<div class="bg-surface-container-lowest rounded-2xl p-3.5 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Recent Assessments</span>
+<span class="font-label-sm text-[11px] text-primary">View All (18)</span>
+</div>
+<div class="flex flex-col gap-2 mt-1">
+<div class="p-2 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-lg bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[14px]">science</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-[12px] font-semibold text-on-surface truncate">Cell Osmosis Quiz</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Jan 16 · Unit 3</span>
+</div>
+</div>
+<span class="font-data-tabular-md text-data-tabular-md font-bold text-secondary">9.6 / 10</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[14px]">biotech</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-[12px] font-semibold text-on-surface truncate">Spectrometry Lab</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Jan 11 · Team rubric</span>
+</div>
+</div>
+<span class="font-data-tabular-md text-data-tabular-md font-bold text-primary">9.2 / 10</span>
+</div>
+</div>
+</div>
+<!-- Behavioral Notes Feed (Mobile) -->
+<div class="bg-surface-container-lowest rounded-2xl p-3.5 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Teacher Notes</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-[10px] font-semibold">14 Merits</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] font-semibold text-on-surface">Prof. Vance</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">2d ago</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2">
+                    “Exemplary leadership during Lab 4. Guided three classmates through calibration without disruption.”
+                  </p>
+</div>
+</div>
+</div>
+<!-- Material 3 Mobile Bottom Navigation Bar -->
+<nav class="absolute bottom-0 left-0 right-0 h-16 bg-surface-container-lowest border-t-0 shadow-[0_-4px_16px_rgba(0,0,0,0.04)] px-4 flex items-center justify-around z-30">
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+<span class="font-label-sm text-[10px]">Overview</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-[10px] font-semibold">Profile</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="font-label-sm text-[10px]">Grades</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="font-label-sm text-[10px]">Comms</span>
+</button>
+</nav>
+<!-- Android Navigation Bar Handle -->
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-28 h-1 rounded-full bg-on-surface-variant/40 z-40 pointer-events-none"></div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic sync preview highlight micro-interaction
+  document.addEventListener('DOMContentLoaded', () => {
+    const sparklineNodes = document.querySelectorAll('svg circle');
+    sparklineNodes.forEach(node => {
+      node.addEventListener('mouseenter', () => {
+        node.setAttribute('r', '7');
+      });
+      node.addEventListener('mouseleave', () => {
+        node.setAttribute('r', node.getAttribute('stroke-width') ? '6' : '5');
+      });
+    });
+  });
+</script></main></div></body></html>
